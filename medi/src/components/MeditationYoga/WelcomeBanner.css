@@ -1,5 +1,10 @@
 /* WelcomeBanner.css */
-
+.welcome_banner_container {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff4f4;
+}
 .welcome_banner {
   display: flex;
   justify-content: center;
@@ -7,6 +12,7 @@
   gap: 64px;
   flex: 1 0 0;
   background: #fff5e4;
+  overflow: hidden;
 }
 
 .left {
@@ -36,8 +42,10 @@
 
 .part1 {
   display: flex;
+  background: linear-gradient(to right, #6a9c89, #116d6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-  color: #6a9c89;
   justify-content: flex-start;
 
   /* Heading/Desktop/H1 */
@@ -51,7 +59,9 @@
 
 .part2 {
   display: flex;
-  color: #116d6e;
+  background: linear-gradient(to right, #116d6e, #6a9c89);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: Roboto;
   font-size: 56px;
   font-style: normal;
@@ -62,7 +72,9 @@
 
 .part3 {
   display: flex;
-  color: var(--Color-Scheme-1-Text, #000);
+  background: linear-gradient(to right, #116d6e, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   /* Heading/Desktop/H1 */
   font-family: Roboto;
   font-size: 56px;
@@ -130,6 +142,7 @@
   display: flex;
   height: 638px;
   flex: 1 0 0;
+  overflow: hidden;
 }
 
 .image1 img,
@@ -142,31 +155,79 @@
   border-radius: var(--Radius-Medium, 0px);
   background: lightgray;
   background-size: cover;
+  position: absolute;
 }
 
 .image1 img {
-  width: 244px;
-  height: 244px;
-  flex-shrink: 0;
-  border-radius: var(--Radius-Medium, 0px);
-  background: url("../MeditationYoga/images/image1.jpg") lightgray 50% / cover
-    no-repeat;
-}
-
-.image3 img {
   width: 304px;
   height: 202px;
   flex-shrink: 0;
   border-radius: var(--Radius-Medium, 0px);
-  background: url("../MeditationYoga/images/image2.jpg") lightgray 50% / cover
+  background: url("../MeditationYoga/images/image1.jpg") lightgray 50% / cover
     no-repeat;
+  margin-top: 372px;
+  margin-bottom: 64px;
+  margin-right: 266px;
+  z-index: 50;
 }
 
-.image2 img {
+.image3 img {
   width: 478px;
   height: 638px;
   flex-shrink: 0;
-  border-radius: var(--Radius-Large, 0px);
+  border-radius: var(--Radius-Medium, 0px);
   background: url("../MeditationYoga/images/image3.jpg") lightgray 50% / cover
     no-repeat;
+  margin-left: 92px;
+  margin-right: 91.5px;
+}
+
+.image2 img {
+  width: 244px;
+  height: 244px;
+  flex-shrink: 0;
+  border-radius: var(--Radius-Large, 0px);
+  background: url("../MeditationYoga/images/image2.jpg") lightgray 50% / cover
+    no-repeat;
+  margin-left: 418px;
+  margin-right: -0.5px;
+  margin-top: 64px;
+  margin-bottom: 330px;
+  z-index: 50;
+}
+
+/* hover effects*/
+.image1 img:hover,
+.image2 img:hover,
+.image3 img:hover {
+  transform: scale(1.1); /* Slight zoom effect */
+  filter: brightness(1.2) contrast(1.1); /* Enhance brightness and contrast */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out; /* Smooth hover transitions */
+  overflow: hidden;
+}
+
+.image1 img::after,
+.image2 img::after,
+.image3 img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2); /* Subtle overlay on hover */
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image1 img:hover::after,
+.image2 img:hover::after,
+.image3 img:hover::after {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.image1 img:hover,
+.image2 img:hover,
+.image3 img:hover {
+  border-radius: 20px; /* Slightly round the corners more on hover */
+  /* Ensure the overlay doesn't exceed the image bounds */
 }
