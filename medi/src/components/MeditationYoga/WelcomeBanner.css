@@ -1,0 +1,172 @@
+/* WelcomeBanner.css */
+
+.welcome_banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  flex: 1 0 0;
+  background: #fff5e4;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  gap: 5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+  padding: 20px;
+}
+
+.hero-header h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px;
+  gap: 1px;
+}
+
+.part1 {
+  display: flex;
+
+  color: #6a9c89;
+  justify-content: flex-start;
+
+  /* Heading/Desktop/H1 */
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 67.2px */
+  text-align: left;
+}
+
+.part2 {
+  display: flex;
+  color: #116d6e;
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%;
+  text-align: left;
+}
+
+.part3 {
+  display: flex;
+  color: var(--Color-Scheme-1-Text, #000);
+  /* Heading/Desktop/H1 */
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: left;
+}
+
+.part3 {
+  display: flex;
+  color: #1e1e1e;
+  /* Heading/Desktop/H1 */
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: left;
+}
+
+.description {
+  text-align: left;
+  display: flex;
+  color: #000;
+
+  /* Text/Medium/Normal */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 150%; /* 27px */
+}
+
+.action {
+  padding: 20px;
+}
+
+.explore-button {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--Color-Neutral-Darkest, #000);
+  background: #ffa725;
+  cursor: pointer;
+  color: var(--Color-White, #fff);
+
+  /* Text/Regular/Normal */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.explore-button:hover {
+  background: #ff8c00;
+  color: var(--Color-White, #fff);
+  border: 1px solid var(--Color-White, #fff);
+}
+
+.right {
+  display: flex;
+  height: 638px;
+  flex: 1 0 0;
+}
+
+.image1 img,
+.image2 img,
+.image3 img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  border-radius: var(--Radius-Medium, 0px);
+  background: lightgray;
+  background-size: cover;
+}
+
+.image1 img {
+  width: 244px;
+  height: 244px;
+  flex-shrink: 0;
+  border-radius: var(--Radius-Medium, 0px);
+  background: url("../MeditationYoga/images/image1.jpg") lightgray 50% / cover
+    no-repeat;
+}
+
+.image3 img {
+  width: 304px;
+  height: 202px;
+  flex-shrink: 0;
+  border-radius: var(--Radius-Medium, 0px);
+  background: url("../MeditationYoga/images/image2.jpg") lightgray 50% / cover
+    no-repeat;
+}
+
+.image2 img {
+  width: 478px;
+  height: 638px;
+  flex-shrink: 0;
+  border-radius: var(--Radius-Large, 0px);
+  background: url("../MeditationYoga/images/image3.jpg") lightgray 50% / cover
+    no-repeat;
+}
