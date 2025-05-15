@@ -1,17 +1,14 @@
-//import logo from './logo.svg';
-import './App.css';
-import Home from './components/Home';
-import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Accommodation from './pages/Accommodation/Accommodation';
 
 function App() {
   return (
-    <>
     <Router>
-       <Home />
       <Routes>
+        <Route path="/accommodation/*" element={<Accommodation />} />
       </Routes>
     </Router>
-    </>
   );
 }
 
