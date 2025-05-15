@@ -1,5 +1,9 @@
 import React from "react";
 import "./BenefitsSection.css"; // Import the CSS file for styling
+import meditationimg from "./images/icons-meditation.png";
+import mentalimg from "./images/icons-mental.png";
+import peaceimg from "./images/icons-peace.png";
+import relaximg from "./images/icons-relax.png";
 
 export default function BenefitsSection() {
   return (
@@ -11,10 +15,11 @@ export default function BenefitsSection() {
               <h2>Discover the Transformative Power of Yoga and Meditation</h2>
             </div>
           </div>
+
           <div className="benefits-container">
             <div className="container">
               <div className="left-icon">
-                <img alt="Yoga Icon" />
+                <img src={meditationimg} alt="Yoga Icon" />
               </div>
               <div className="right-text">
                 <div className="title">
@@ -30,7 +35,7 @@ export default function BenefitsSection() {
             </div>
             <div className="container">
               <div className="left-icon">
-                <img alt="Yoga Icon" />
+                <img src={mentalimg} alt="Yoga Icon" />
               </div>
               <div className="right-text">
                 <div className="title">
@@ -46,7 +51,88 @@ export default function BenefitsSection() {
             </div>
             <div className="container">
               <div className="left-icon">
-                <img alt="Yoga Icon" />
+                <img src={peaceimg} alt="Yoga Icon" />
+              </div>
+              <div className="right-text">
+                <div className="title">
+                  <span>Relieve Stress Naturally</span>
+                </div>
+                <div className="desc">
+                  <span>
+                    Let go of tension and embrace tranquility through mindful
+                    breathing and movement.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="left-icon">
+                <img src={relaximg} alt="Yoga Icon" />
+              </div>
+              <div className="right-text">
+                <div className="title">
+                  <span>Relieve Stress Naturally</span>
+                </div>
+                <div className="desc">
+                  <span>
+                    Let go of tension and embrace tranquility through mindful
+                    breathing and movement.
+                  </span>
+                </div>
+              </div>
+            </div>
+            {/*duplicate*/}
+            <div className="container">
+              <div className="left-icon">
+                <img src={meditationimg} alt="Yoga Icon" />
+              </div>
+              <div className="right-text">
+                <div className="title">
+                  <span>Unlock Inner Peace</span>
+                </div>
+                <div className="desc">
+                  <span>
+                    Yoga and meditation calm your mind, helping you navigate
+                    life's challenges with clarity and serenity.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="left-icon">
+                <img src={mentalimg} alt="Yoga Icon" />
+              </div>
+              <div className="right-text">
+                <div className="title">
+                  <span>Boost Mental Clarity</span>
+                </div>
+                <div className="desc">
+                  <span>
+                    Feel refreshed and focused with practices that enhance
+                    memory, creativity, and decision-making.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="left-icon">
+                <img src={peaceimg} alt="Yoga Icon" />
+              </div>
+              <div className="right-text">
+                <div className="title">
+                  <span>Relieve Stress Naturally</span>
+                </div>
+                <div className="desc">
+                  <span>
+                    Let go of tension and embrace tranquility through mindful
+                    breathing and movement.
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="container">
+              <div className="left-icon">
+                <img src={relaximg} alt="Yoga Icon" />
               </div>
               <div className="right-text">
                 <div className="title">
