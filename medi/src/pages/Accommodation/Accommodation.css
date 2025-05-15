@@ -1,0 +1,15 @@
+.accommodation-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.calendar-container {
+  margin-bottom: 30px;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
