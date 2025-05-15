@@ -1,7 +1,8 @@
 //import logo from './logo.svg';
-import MeditationYogaHome from "../src/pages/MeditationYoga/MeditationYogaHome"; // Import the MeditationYogaHome component
-import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Import needed for routing
+import './App.css';
+import Home from './components/Home';
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+
 
 function App() {
   // route to the Meditation Yoga Home page
@@ -13,11 +14,15 @@ function App() {
   ]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <RouterProvider router={router} />
-      </header>
-    </div>
+
+    <>
+    <Router>
+       <Home />
+      <Routes>
+      </Routes>
+    </Router>
+    </>
+
   );
 }
 
