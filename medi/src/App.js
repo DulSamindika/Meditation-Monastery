@@ -1,29 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Accommodation from './pages/Accommodation/Accommodation';
-
+// import MeditationYogaHome from './pages/MeditationYoga/MeditationYogaHome'; // Uncomment if it exists
 
 function App() {
-  // route to the Meditation Yoga Home page
-  const router = createBrowserRouter([
-    {
-      path: "/meditation-yoga",
-      element: <MeditationYogaHome />,
-    },
-  ]);
-
   return (
-
-    <>
-
     <Router>
       <Routes>
         <Route path="/accommodation/*" element={<Accommodation />} />
+        {/* <Route path="/meditation-yoga" element={<MeditationYogaHome />} /> */}
       </Routes>
     </Router>
-
-    </>
-
   );
 }
 
