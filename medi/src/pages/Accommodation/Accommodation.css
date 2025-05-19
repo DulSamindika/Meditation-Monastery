@@ -12,7 +12,7 @@
 .accommodation-header {
   text-align: center;
   margin-bottom: 40px;
-  color: #7b6f52; /* calm brown */
+  color: #013220; /* updated heading color */
 }
 
 .accommodation-header h1 {
@@ -20,6 +20,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   margin-bottom: 10px;
+  color: #013220; /* updated heading color */
 }
 
 .room-list {
@@ -64,7 +65,7 @@
 .room-info h2 {
   font-size: 1.6rem;
   margin-bottom: 10px;
-  color: #5a533e; /* darker brown */
+  color: #013220; /* updated heading color */
 }
 
 .room-info p.description {
@@ -78,7 +79,7 @@
 .room-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #b98c3f; /* golden mustard */
+  color: #1acc8d; /* updated accent color */
   margin-bottom: 12px;
 }
 
@@ -98,7 +99,7 @@
 }
 
 .booking-btn {
-  background-color: #b98c3f;
+  background-color: #1acc8d; /* updated button color */
   border: none;
   padding: 12px;
   border-radius: 8px;
@@ -111,7 +112,7 @@
 }
 
 .booking-btn:hover {
-  background-color: #967635;
+  background-color: #013220; /* updated hover color */
 }
 
 /* Responsive */
