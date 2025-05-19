@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   overflow: hidden; /* Hide overflow for a clean look */
 }
 
@@ -13,13 +13,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 0px;
   justify-content: flex-start;
   padding-left: 100px;
   padding-right: 100px;
-  background: rgba(231, 254, 235, 0.65);
+  background: #e7feeb;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 50px;
 }
 
 .benefits-container .container:nth-child(1) {
@@ -58,9 +59,10 @@
 .text-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .heading {
