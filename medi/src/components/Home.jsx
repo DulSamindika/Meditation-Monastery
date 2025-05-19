@@ -4,11 +4,19 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 function Home() {
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  
 
   return (
     <>
@@ -166,8 +174,183 @@ function Home() {
 {/* End of About section */}
 
 
-        
-      </main>
+
+
+{/* Section stats start */}
+
+<section id="stats" class="stats section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-emoji-smile"></i>
+            <div class="stats-item">
+              
+              <div class="display-5 fw-bold">1000+</div>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-journal-richtext"></i>
+            <div class="stats-item">
+              <div class="display-5 fw-bold">30+</div>
+              <p>Destinations around Ella</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-headset"></i>
+            <div class="stats-item">
+              <div class="display-5 fw-bold">24</div>
+              <p>Hours Of Support</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-door-closed"></i>
+            <div class="stats-item">
+              <div class="display-5 fw-bold">4</div>
+              <p>Rooms</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    {/* Details Section */}
+    <section id="details" class="details section">
+
+      
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Details</h2>
+        <div><span>Check Our</span> <span class="description-title">Details</span></div>
+      </div>
+
+ <div class="container">
+
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <img src="assets/img/details-1.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>Free Daily Meditation Sessions — Reconnect with Inner Peace.</h3>
+            <p class="fst-italic">
+              At Meditation Monastery Stay, we believe true relaxation comes from within. That’s why we offer free guided meditation sessions led by experienced monks in a serene, natural setting. Whether you’re a beginner or a seasoned practitioner, our sessions help you slow down, breathe deeply, and embrace the present moment.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span>Reduces Stress and Anxiety.</span></li>
+              <li><i class="bi bi-check"></i> <span>Promotes relaxation and better rest.</span></li>
+              <li><i class="bi bi-check"></i> <span>Encourages self-awareness and mindful choices.</span></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+    </section>   
+
+    <section id="testimonials" className="testimonials section dark-background">
+  <img src="assets/img/testimonials-bg.png" className="testimonials-bg" alt="" />
+
+  <div className="container" data-aos="fade-up" data-aos-delay="100">
+    <Swiper
+      loop={true}
+      speed={600}
+      autoplay={{ delay: 5000 }}
+      slidesPerView="auto"
+      pagination={{ clickable: true }}
+      modules={[Autoplay, Pagination]}
+    >
+      <SwiperSlide>
+        <div className="testimonial-item">
+          <img src="assets/img/testimonials/testimonials-1.jpg" className="testimonial-img" alt="" />
+          <h3>Saul Goodman</h3>
+          <h4>Ceo &amp; Founder</h4>
+          <div className="stars">
+            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
+          </div>
+          <p>
+            <i className="bi bi-quote quote-icon-left"></i>
+            <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus...</span>
+            <i className="bi bi-quote quote-icon-right"></i>
+          </p>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="testimonial-item">
+          <img src="assets/img/testimonials/testimonials-2.jpg" className="testimonial-img" alt="" />
+          <h3>Sara Wilsson</h3>
+          <h4>Designer</h4>
+          <div className="stars">
+            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
+          </div>
+          <p>
+            <i className="bi bi-quote quote-icon-left"></i>
+            <span>Export tempor illum tamen malis malis eram quae irure esse labore...</span>
+            <i className="bi bi-quote quote-icon-right"></i>
+          </p>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="testimonial-item">
+          <img src="assets/img/testimonials/testimonials-3.jpg" className="testimonial-img" alt="" />
+          <h3>Jena Karlis</h3>
+          <h4>Store Owner</h4>
+          <div className="stars">
+            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
+          </div>
+          <p>
+            <i className="bi bi-quote quote-icon-left"></i>
+            <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla...</span>
+            <i className="bi bi-quote quote-icon-right"></i>
+          </p>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="testimonial-item">
+          <img src="assets/img/testimonials/testimonials-4.jpg" className="testimonial-img" alt="" />
+          <h3>Matt Brandon</h3>
+          <h4>Freelancer</h4>
+          <div className="stars">
+            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
+          </div>
+          <p>
+            <i className="bi bi-quote quote-icon-left"></i>
+            <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim...</span>
+            <i className="bi bi-quote quote-icon-right"></i>
+          </p>
+        </div>
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <div className="testimonial-item">
+          <img src="assets/img/testimonials/testimonials-5.jpg" className="testimonial-img" alt="" />
+          <h3>John Larson</h3>
+          <h4>Entrepreneur</h4>
+          <div className="stars">
+            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
+          </div>
+          <p>
+            <i className="bi bi-quote quote-icon-left"></i>
+            <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor...</span>
+            <i className="bi bi-quote quote-icon-right"></i>
+          </p>
+        </div>
+      </SwiperSlide>
+
+      <div className="swiper-pagination"></div>
+    </Swiper>
+  </div>
+</section>
+
+
+    
+   </main>
     </>
   );
 }
