@@ -13,7 +13,7 @@ export default function MWelcomeBanner() {
           <div className="left">
             <div className="content">
               <div className="hero-header">
-                <span className="part1">Booking Your </span>
+                <span className="part1">Join Our</span>
                 <span className="part2">Meditation & Yoga Sessions</span>
                 <span className="part3">Today</span>
                 <br></br>
