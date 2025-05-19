@@ -111,6 +111,7 @@
 
 .action {
   padding: 20px;
+  margin-top: 22px;
 }
 
 .explore-button {
@@ -120,7 +121,7 @@
   align-items: center;
   gap: 8px;
   border: 1px solid var(--Color-Neutral-Darkest, #000);
-  background: #ffa725;
+  background: #1acc8d;
   cursor: pointer;
   color: var(--Color-White, #fff);
 
@@ -133,7 +134,7 @@
 }
 
 .explore-button:hover {
-  background: #ff8c00;
+  background: #013220;
   color: var(--Color-White, #fff);
   border: 1px solid var(--Color-White, #fff);
 }
