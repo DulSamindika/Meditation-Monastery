@@ -1,9 +1,10 @@
 /* WelcomeBanner.css */
 .welcome_banner_container {
   display: flex;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #fff4f4;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #ffffff;
+  padding: 20px 64px;
 }
 .welcome_banner {
   display: flex;
@@ -11,7 +12,7 @@
   align-items: center;
   gap: 64px;
   flex: 1 0 0;
-  background: #fff5e4;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
