@@ -8,7 +8,7 @@ export default function SessionsSection() {
       text: "Connect with tranquility through our expert-led meditation practices.",
     },
     {
-      heading: "Yoga for Inner and Outer Harmony",
+      heading: "Guided Yoga Sessions",
       text: "Stretch, strengthen, and balance with tailored yoga sessions.",
     },
     {
