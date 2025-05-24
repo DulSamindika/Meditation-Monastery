@@ -1,6 +1,6 @@
 /* RoomDetails.css */
 
-/* Container and layout */
+/* Base container and theme styles */
 .room-details-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-bottom: 40px;
@@ -17,7 +17,7 @@
   color: #e4e4e7;
 }
 
-/* Theme toggle button container */
+/* Theme toggle button */
 .theme-toggle-container {
   display: flex;
   justify-content: flex-end;
@@ -27,19 +27,19 @@
 .theme-toggle-btn {
   cursor: pointer;
   border: none;
-  background-color: #e5e7eb; /* Tailwind's gray-200 */
-  color: #1f2937; /* Tailwind's gray-800 */
+  background-color: #e5e7eb;
+  color: #1f2937;
   font-weight: 600;
   border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .theme-toggle-btn:hover {
-  background-color: #d1d5db; /* Tailwind's gray-300 */
-  color: #111827; /* Tailwind's gray-900 */
+  background-color: #d1d5db;
+  color: #111827;
 }
 
-/* Main card container */
+/* Room content card */
 .max-w-4xl {
   max-width: 64rem;
 }
@@ -70,17 +70,19 @@
 }
 
 .text-gray-900 {
-  color: #111827;
+  color: #013220; /* Heading */
 }
 
 .dark .text-gray-100 {
   color: #f3f4f6;
 }
 
-/* Headings and text */
-.text-2xl {
+.text-2xl,
+.room-location h3 {
   font-size: 1.5rem;
   line-height: 2rem;
+  font-weight: 700;
+  color: #013220; /* Heading */
 }
 
 .font-bold {
@@ -107,7 +109,7 @@
   margin-bottom: 1rem;
 }
 
-/* Image grid */
+/* Images */
 .grid {
   display: grid;
   gap: 0.75rem;
@@ -153,7 +155,7 @@
   color: #e5e7eb;
 }
 
-/* Pricing and offers */
+/* Price and offers */
 .border {
   border: 1px solid #d1d5db;
 }
@@ -216,7 +218,7 @@
   color: #dc2626;
 }
 
-/* Date picker inputs */
+/* Date picker */
 input.react-datepicker-ignore-onclickoutside {
   width: 100%;
   padding: 0.5rem;
@@ -228,11 +230,10 @@ input.react-datepicker-ignore-onclickoutside {
 
 input.react-datepicker-ignore-onclickoutside:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(59,130,246,0.5);
+  border-color: #1acc8d; /* Accent */
+  box-shadow: 0 0 0 2px rgba(26, 204, 141, 0.5);
 }
 
-/* Date picker labels */
 label {
   display: block;
   margin-bottom: 0.25rem;
@@ -240,17 +241,22 @@ label {
   font-size: 0.875rem;
 }
 
-/* Booking button */
+/* Buttons */
 button {
   cursor: pointer;
   transition: background-color 0.3s ease;
+  background-color: #1acc8d; /* Default */
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.375rem;
 }
 
 button:hover {
-  filter: brightness(0.9);
+  background-color: #013220; /* On hover */
+  filter: none;
 }
 
-/* Specific booking button */
 button.px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -261,27 +267,7 @@ button.py-2 {
   padding-bottom: 0.5rem;
 }
 
-.bg-blue-600 {
-  background-color: #2563eb;
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.hover\:bg-blue-700:hover {
-  background-color: #1d4ed8;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.rounded {
-  border-radius: 0.375rem;
-}
-
-/* Booking confirmation toast */
+/* Toast message */
 .bg-green-100 {
   background-color: #d1fae5;
 }
@@ -294,7 +280,7 @@ button.py-2 {
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Location section */
+/* Location box */
 .room-location {
   margin-top: 1.5rem;
   padding: 1rem;
@@ -310,14 +296,8 @@ button.py-2 {
   color: #e5e7eb;
 }
 
-.room-location h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
 .map-links a {
-  color: #2563eb;
+  color: #1acc8d; /* Accent */
   text-decoration: none;
   display: block;
   margin-top: 0.25rem;
@@ -328,7 +308,7 @@ button.py-2 {
   text-decoration: underline;
 }
 
-/* Responsive flex for date pickers */
+/* Responsive layout */
 @media (min-width: 640px) {
   .flex {
     display: flex;
