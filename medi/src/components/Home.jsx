@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 
 function Home() {
 
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -75,7 +76,9 @@ function Home() {
                 <h1>Meditation Monastery<span> Kithalella</span></h1>
                 <p>The Spirit Of Mindfullness</p>
                 <div className="d-flex">
-                  <a href="#about" className="btn-get-started">Book Now</a>
+                  
+                  <button  className="btn-get-started" >Book Now</button>
+
                   <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" className="glightbox btn-watch-video d-flex align-items-center">
                     <i className="bi bi-play-circle"></i><span>Watch Video</span>
                   </a>
