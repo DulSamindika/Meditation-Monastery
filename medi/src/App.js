@@ -10,7 +10,6 @@ import 'aos/dist/aos.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Accommodation from './pages/Accommodation/Accommodation';
-import Home from './components/Home.jsx'
  import MeditationYogaHome from './pages/MeditationYoga/MeditationYogaHome'; // Uncomment if it exists
 
 function App() {
