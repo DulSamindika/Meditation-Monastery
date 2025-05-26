@@ -89,7 +89,7 @@
   align-items: center;
   gap: 32px;
   align-self: stretch;
-  margin-top: 5px;
+  margin-top: -50px;
 }
 
 .main-container .row {
@@ -105,7 +105,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  flex: 1 0 0;
+  flex: 0.8 0 0;
 }
 
 .main-container .row .card .image {
@@ -118,7 +118,7 @@
 }
 
 .main-container .row .card .image .placeholder-image {
-  flex: 1 0 0;
+  flex: 0.7 0 0;
   align-self: stretch;
 
   border-radius: var(--Radius-Medium, 0px);
@@ -127,7 +127,7 @@
 
 .main-container .row .card .image .date {
   display: flex;
-  width: 112px;
+  width: 100px;
   padding: 12px 4px;
   flex-direction: column;
   justify-content: center;
@@ -184,6 +184,7 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+  margin-top: -90px;
 }
 
 .main-container .row .card .content-box .content {
@@ -213,7 +214,7 @@
 
   /* Text/Small/Semi Bold */
   font-family: Roboto;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: 150%; /* 21px */
@@ -238,7 +239,7 @@
 
   /* Heading/Desktop/H5 */
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 700;
   line-height: 140%; /* 33.6px */
@@ -249,7 +250,7 @@
 
   /* Text/Regular/Normal */
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
@@ -260,7 +261,7 @@
 
   /* Text/Regular/Normal */
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
@@ -286,12 +287,12 @@
 
   /* Text/Regular/Normal */
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
 }
 .main-container .row .card .content-box .action .button .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 }
