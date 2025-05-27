@@ -1,298 +1,211 @@
+:root {
+  --background-color: #fff;
+  --text-color-primary: #000;
+  --text-color-secondary: #666;
+  --highlight-color: #013220;
+  --border-color: #ddd;
+  --font-primary: "Roboto", sans-serif;
+}
+
 .events-section {
   display: flex;
-  width: 1440px;
-  padding: 10px 64px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  padding: 20px 64px;
   gap: 80px;
-
-  background: var(--Color-Scheme-1-Background, rgb(255, 255, 255));
+  background: var(--background-color);
 }
-/*Heading section*/
+
+/* Heading Section */
+
 .heading-part {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  align-items: flex-end;
-
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd; /* Optional: for a cleaner section division */
-  padding-bottom: 15px;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+.heading-section {
+  display: flex;
   justify-content: space-between;
+  justify-self: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
 }
 
 .heading-title {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 5px;
-  padding: 0px;
-  margin-left: 5px;
 }
 
 .tagline-text {
   font-size: 14px;
-  font-weight: normal;
-  color: #000000;
-}
-
-.main-heading {
-  justify-self: start;
+  font-weight: 400;
+  color: var(--text-color-secondary);
 }
 
 .main-heading-text {
   font-size: 32px;
   font-weight: bold;
-  color: #000;
   margin: 0;
-  text-align: left;
+  color: var(--text-color-primary);
 }
 
 .main-heading-desc {
   font-size: 16px;
-  color: #666;
+  color: var(--text-color-secondary);
 }
 
 .heading-action {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .heading-action-btn {
   padding: 8px 16px;
   font-size: 14px;
-  font-weight: normal;
-  color: #000;
+  font-weight: 400;
+  color: var(--text-color-primary);
   background-color: transparent;
-  border: 1px solid #000;
+  border: 1px solid var(--text-color-primary);
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .heading-action-btn:hover {
-  background-color: #013220;
+  background-color: var(--highlight-color);
   color: #fff;
 }
 
-.heading-action-btn-text {
-  font-weight: normal;
-  text-transform: capitalize;
-}
-
-/*Content section*/
-
+/* Main Container */
 .main-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 32px;
-  align-self: stretch;
-  margin-top: -50px;
+  width: 100%;
 }
 
-.main-container .row {
+.row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  align-self: stretch;
+  flex-wrap: wrap;
+  gap: 16px; /* Space between cards */
+  justify-content: space-between; /* Adjust alignment */
 }
 
-.main-container .row .card {
+.card {
+  flex: 1 1 calc(33.333% - 16px); /* Responsive grid with 3 cards per row */
+  box-sizing: border-box;
+}
+.card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  flex: 0.8 0 0;
+  flex: 1 0 calc(25% - 32px); /* Adjusts for responsive design */
+  max-width: 300px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.main-container .row .card .image {
-  display: flex;
-  height: 277px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  align-self: stretch;
-}
-
-.main-container .row .card .image .placeholder-image {
-  flex: 0.7 0 0;
-  align-self: stretch;
-
-  border-radius: var(--Radius-Medium, 0px);
+.card .image {
+  position: relative;
+  width: 100%;
+  height: 200px;
   background: lightgray 50% / cover no-repeat;
 }
 
-.main-container .row .card .image .date {
-  display: flex;
-  width: 100px;
-  padding: 12px 4px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+.card .date {
   position: absolute;
-  right: 16px;
   top: 16px;
+  right: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-align: center;
 }
 
-.main-container .row .card .image .date .day {
-  align-self: stretch;
-
-  color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
-
-  /* Text/Small/Normal */
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 21px */
-}
-
-.main-container .row .card .image .date .day-num {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
-
-  /* Heading/Desktop/H4 */
-  font-family: Roboto;
+.card .date .day-num {
   font-size: 32px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 130%; /* 41.6px */
 }
 
-.main-container .row .card .image .date .year {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
-
-  /* Text/Small/Normal */
-  font-family: Roboto;
+.card .date .day,
+.card .date .year {
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 21px */
 }
 
-.main-container .row .card .content-box {
+.card .content-box {
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 16px;
-  align-self: stretch;
-  margin-top: -90px;
+  width: 100%;
 }
 
-.main-container .row .card .content-box .content {
+.card .event-details {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  align-self: stretch;
-}
-
-.main-container .row .card .content-box .content .event-details {
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 16px;
-  align-self: stretch;
   flex-wrap: wrap;
+  gap: 8px;
 }
-.main-container .row .card .content-box .content .event-details .tag {
-  display: flex;
+
+.card .tag {
   padding: 4px 8px;
-  align-items: flex-start;
-  background: var(--Color-Neutral-Lightest, #eee);
-}
-.main-container .row .card .content-box .content .event-details .tag .text {
-  color: var(--Color-Neutral-Darkest, #000);
-
-  /* Text/Small/Semi Bold */
-  font-family: Roboto;
+  background-color: #eee;
+  border-radius: 4px;
   font-size: 12px;
-  font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 21px */
+  color: #333;
 }
 
-.main-container .row .card .content-box .content .main-box {
+.card .main-box {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
-  align-self: stretch;
 }
-.main-container .row .card .content-box .content .main-box .title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-}
-.main-container .row .card .content-box .content .main-box .title .heading {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #000);
 
-  /* Heading/Desktop/H5 */
-  font-family: Roboto;
+.card .title .heading {
   font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 33.6px */
+  font-weight: bold;
+  color: var(--text-color-primary);
 }
-.main-container .row .card .content-box .content .main-box .title .location {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #000);
 
-  /* Text/Regular/Normal */
-  font-family: Roboto;
+.card .title .location {
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
+  color: var(--text-color-secondary);
 }
-.main-container .row .card .content-box .content .desc {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #000);
 
-  /* Text/Regular/Normal */
-  font-family: Roboto;
+.card .desc {
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
+  line-height: 1.5;
+  color: var(--text-color-secondary);
 }
 
-.main-container .row .card .content-box .action {
-  display: flex;
-  padding-top: 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
-}
-
-.main-container .row .card .content-box .action .button {
+.card .action .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-}
-.main-container .row .card .content-box .action .button .text {
-  color: var(--Color-Neutral-Darkest, #000);
-
-  /* Text/Regular/Normal */
-  font-family: Roboto;
+  padding: 8px 16px;
+  background-color: var(--highlight-color);
+  color: #fff;
+  border-radius: 4px;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
+  cursor: pointer;
 }
-.main-container .row .card .content-box .action .button .icon {
-  width: 20px;
-  height: 20px;
+
+.card .action .button:hover {
+  background-color: darkgreen;
 }
