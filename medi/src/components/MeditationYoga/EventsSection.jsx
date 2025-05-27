@@ -18,8 +18,8 @@ export default function EventsSection() {
     setShowMore(!showMore);
   };
 
-  const firstRow = events.slice(0, 3); // Assuming a row contains 3 events
-  const otherRows = events.slice(3); // Remaining events
+  const firstRow = events.slice(0, 4); // Assuming a row contains 3 events
+  const otherRows = events.slice(4); // Remaining events
 
   return (
     <div className="events-section">
