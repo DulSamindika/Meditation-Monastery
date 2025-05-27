@@ -1,9 +1,10 @@
 /* WelcomeBanner.css */
 .welcome_banner_container {
   display: flex;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #fff4f4;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #ffffff;
+  padding: 20px 64px;
 }
 .welcome_banner {
   display: flex;
@@ -11,7 +12,7 @@
   align-items: center;
   gap: 64px;
   flex: 1 0 0;
-  background: #fff5e4;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
@@ -111,6 +112,7 @@
 
 .action {
   padding: 20px;
+  margin-top: 22px;
 }
 
 .explore-button {
@@ -120,7 +122,7 @@
   align-items: center;
   gap: 8px;
   border: 1px solid var(--Color-Neutral-Darkest, #000);
-  background: #ffa725;
+  background: #1acc8d;
   cursor: pointer;
   color: var(--Color-White, #fff);
 
@@ -133,7 +135,7 @@
 }
 
 .explore-button:hover {
-  background: #ff8c00;
+  background: #013220;
   color: var(--Color-White, #fff);
   border: 1px solid var(--Color-White, #fff);
 }
