@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import "./AdminMediYoga.css"; // Add CSS for styling
+import axios from "axios";
+import "./AdminMediYoga.css";
 
-export default function AdminPage({ onAddEvent }) {
+export default function AdminMediYoga() {
   const [eventDetails, setEventDetails] = useState({
     title: "",
     location: "",
     category: "",
     date: "",
     description: "",
+    imageURL: "", // Optional field for the event image URL
   });
 
   const handleChange = (e) => {
@@ -18,21 +20,37 @@ export default function AdminPage({ onAddEvent }) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onAddEvent(eventDetails);
-    setEventDetails({
-      title: "",
-      location: "",
-      category: "",
-      date: "",
-      description: "",
-    });
+    try {
+      // Send event details to the backend
+      const response = await axios.post(
+        "http://localhost:5000/events",
+        eventDetails
+      );
+      if (response.status === 201) {
+        alert("Event added successfully!");
+        // Reset form fields after successful submission
+        setEventDetails({
+          title: "",
+          location: "",
+          category: "",
+          date: "",
+          description: "",
+          imageURL: "",
+        });
+      } else {
+        console.error("Failed to add event:", response);
+      }
+    } catch (error) {
+      console.error("Error while adding event:", error);
+      alert("An error occurred while adding the event. Please try again.");
+    }
   };
 
   return (
     <div className="admin-page">
-      <h2>Admin Panel - Manage Events</h2>
+      <h2>Admin Panel - Add Event</h2>
       <form className="event-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Event Title:</label>
@@ -82,6 +100,15 @@ export default function AdminPage({ onAddEvent }) {
             onChange={handleChange}
             required
           ></textarea>
+        </div>
+        <div className="form-group">
+          <label>Image URL (optional):</label>
+          <input
+            type="text"
+            name="imageURL"
+            value={eventDetails.imageURL}
+            onChange={handleChange}
+          />
         </div>
         <button type="submit" className="submit-btn">
           Add Event
