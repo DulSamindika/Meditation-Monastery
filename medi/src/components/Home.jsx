@@ -3,7 +3,6 @@ import './Home.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -13,7 +12,6 @@ import 'swiper/css/pagination';
 
 function Home() {
 
-   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
@@ -79,7 +77,7 @@ function Home() {
                 <p>The Spirit Of Mindfullness</p>
                 <div className="d-flex">
                   
-                  <button onClick={() => navigate('/login')} className="btn-get-started" >Book Now</button>
+                  <button  className="btn-get-started" >Book Now</button>
 
                   <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" className="glightbox btn-watch-video d-flex align-items-center">
                     <i className="bi bi-play-circle"></i><span>Watch Video</span>
