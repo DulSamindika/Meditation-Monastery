@@ -15,7 +15,7 @@
   width: 100%;
   max-width: 1440px;
   padding: 20px 64px;
-  gap: 80px;
+  gap: 10px;
   background: var(--background-color);
 }
 
@@ -24,9 +24,9 @@
   display: flex;
   width: 100%;
   align-items: flex-end;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   border-bottom: 1px solid #ddd; /* Optional: for a cleaner section division */
-  padding-bottom: 15px;
+  padding-bottom: 0px;
   justify-content: space-between;
 }
 
@@ -59,7 +59,7 @@
 
 .main-heading-desc {
   font-size: 16px;
-  color: #666;
+  color: #000000;
 }
 
 .heading-action {
@@ -96,6 +96,8 @@
   align-items: center;
   gap: 32px;
   width: 100%;
+  margin-top: 0px;
+  padding-top: 0px;
 }
 
 .row {
@@ -103,6 +105,8 @@
   flex-wrap: wrap;
   gap: 30px; /* Space between cards */
   justify-content: space-between; /* Adjust alignment */
+  background-color: #a0d29436;
+  margin-top: -70px; /* Adjust for spacing */
 }
 
 .card {
@@ -121,12 +125,21 @@
   border-radius: 8px;
   overflow: hidden;
 }
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
 
 .card .image {
   position: relative;
   width: 100%;
   height: 200px;
   background: lightgray 50% / cover no-repeat;
+  overflow: hidden;
+  margin-bottom: -30px;
 }
 
 .card .date {
@@ -194,8 +207,12 @@
   font-size: 14px;
   line-height: 1.5;
   color: var(--text-color-secondary);
+  display: -webkit-box; /* Enable the webkit box model */
+  -webkit-line-clamp: 2; /* Limit the number of lines to 2 */
+  -webkit-box-orient: vertical; /* Set the orientation to vertical */
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis (...) at the end of truncated text */
 }
-
 .card .action .button {
   display: flex;
   justify-content: center;
