@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const connectDB = require("./Database/connect");
 const eventsRoutes = require("./Routes/events");
+const videoRoutes = require("./Routes/videos");
 
 const path = require("path");
 
@@ -20,6 +21,10 @@ app.use(express.json());
 
 // Routes
 app.use("/events", eventsRoutes);
+// Video Routes
+app.use("/api/videos", videoRoutes);
+// Static folder for uploaded files
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
