@@ -1,14 +1,68 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("../Middleware/upload"); // The upload.js you provided earlier
+const Video = require("../Database/models/meditationvideo"); // Assuming this is the correct path to your video model
 
-router.post("/upload", upload.single("video"), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send({ message: "No file uploaded!" });
+// Create Video
+router.post("/upload", upload.single("video"), async (req, res) => {
+  try {
+    const { title, description, date } = req.body;
+
+    if (!req.file) {
+      return res.status(400).json({ message: "No video file uploaded." });
+    }
+
+    const newVideo = new Video({
+      title,
+      description,
+      date,
+      filePath: `/uploads/videos/${req.file.filename}`,
+    });
+
+    await newVideo.save();
+    res.status(201).json(newVideo);
+  } catch (error) {
+    console.error("Error uploading video:", error);
+    res.status(500).json({ message: "Failed to upload video." });
   }
+});
 
-  const filePath = `/uploads/videos/${req.file.filename}`;
-  res.status(200).send({ message: "Video uploaded successfully!", filePath });
+// Read All Videos
+router.get("/", async (req, res) => {
+  try {
+    const videos = await Video.find();
+    res.status(200).json(videos);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch videos." });
+  }
+});
+
+// Update Video
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { title, description, date } = req.body;
+
+    const updatedVideo = await Video.findByIdAndUpdate(
+      id,
+      { title, description, date },
+      { new: true }
+    );
+
+    res.status(200).json(updatedVideo);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to update video." });
+  }
+});
+// Delete Video
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Video.findByIdAndDelete(id);
+    res.status(200).json({ message: "Video deleted successfully." });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete video." });
+  }
 });
 
 module.exports = router;

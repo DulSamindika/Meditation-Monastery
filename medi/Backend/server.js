@@ -21,10 +21,12 @@ app.use(express.json());
 
 // Routes
 app.use("/events", eventsRoutes);
-// Video Routes
-app.use("/api/videos", videoRoutes);
+
 // Static folder for uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+// Video Routes
+app.use("/api/videos", videoRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
