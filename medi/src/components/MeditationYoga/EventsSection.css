@@ -24,7 +24,7 @@
   display: flex;
   width: 100%;
   align-items: flex-end;
-  margin-bottom: 0px;
+  margin-bottom: 100px;
   border-bottom: 1px solid #ddd; /* Optional: for a cleaner section division */
   padding-bottom: 0px;
   justify-content: space-between;
@@ -106,7 +106,7 @@
   gap: 30px; /* Space between cards */
   justify-content: space-between; /* Adjust alignment */
   background-color: #a0d29436;
-  margin-top: -70px; /* Adjust for spacing */
+  margin-top: -50px; /* Adjust for spacing */
 }
 
 .card {

@@ -38,7 +38,7 @@ export default function SessionsSection() {
         <div className="content">
           <span className="heading">Explore Peace Through Our Practices</span>
           <span className="text">
-            Unwind, Rejuvenate, and Thrive with Timeless Wisdom.
+            Uuuunwind, Rejuvenate, and Thrive with Timeless Wisdom.
           </span>
         </div>
       </div>

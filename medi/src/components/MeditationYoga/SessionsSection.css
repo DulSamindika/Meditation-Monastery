@@ -4,7 +4,7 @@
   padding: 100px 64px;
 
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 70px;
   background: rgb(255, 255, 255);
   margin-top: -80px;
@@ -12,9 +12,9 @@
 
 .section-title {
   display: flex;
-  width: 768px;
+  width: 100%;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Align text to the left */
   gap: 5px;
   padding-bottom: 10px;
   margin: 20px;
@@ -22,12 +22,14 @@
 
 .tagline-wrapper {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
 }
 
 .tagline-text {
+  align-self: start;
   color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
+  text-align: left;
   /* Heading/Desktop/Tagline */
   font-family: Roboto;
   font-size: 16px;
@@ -37,23 +39,18 @@
   margin-bottom: -10px;
 }
 
-.content {
+.section-title-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Align text to the left */
   gap: 24px;
-  align-self: stretch;
   margin-bottom: 0px;
+  justify-content: flex-start;
+  background-color: #774c4c;
 }
-
 .heading {
-  align-self: stretch;
-
+  align-self: flex-start; /* Align to the left */
   color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
-
-  color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
 
   /* Heading/Desktop/H2 */
   font-family: Roboto;
@@ -64,10 +61,8 @@
 }
 
 .text {
-  align-self: stretch;
-
+  align-self: flex-start; /* Align to the left */
   color: var(--Color-Scheme-1-Text, #000);
-  text-align: center;
 
   /* Text/Medium/Normal */
   font-family: Roboto;
