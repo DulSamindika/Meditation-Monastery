@@ -9,8 +9,12 @@ import 'aos/dist/aos.css';
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Accommodation from './pages/Accommodation/Accommodation';
+import Accommodation from './pages/Accommodation/Accommodation';<<<<<<< dul
+// import MeditationYogaHome from './pages/MeditationYoga/MeditationYogaHome'; // Uncomment if it exists
+//import NavBar from './components/NavBar';
+
  import MeditationYogaHome from './pages/MeditationYoga/MeditationYogaHome'; // Uncomment if it exists
+
 
 function App() {
   useEffect(() => {
@@ -23,9 +27,16 @@ function App() {
   return (
     <Router>
       <Routes>
+
+        {/*<Route path="/accommodation/*" element={<Accommodation />} />*/}
+        {/* <Route path="/meditation-yoga" element={<MeditationYogaHome />} /> */}
+        {/*<Route path="/" element={<Home />} /> */}
+        {/*<Route path="/home" element={<Home />} /> */}
+
         <Route path="/" element={<Home />} />
         <Route path="/accommodation/*" element={<Accommodation />} />
         <Route path="/meditation-yoga" element={<MeditationYogaHome />} /> 
+
       </Routes>
     </Router>
   );
