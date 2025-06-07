@@ -1,19 +1,23 @@
 import React from "react";
 import "./SessionsSection.css";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 export default function SessionsSection() {
   const categoriesColumn1 = [
     {
       heading: "Guided Meditation Sessions",
       text: "Connect with tranquility through our expert-led meditation practices.",
+      url: "/guided-meditation",
     },
     {
-      heading: "Yoga for Inner and Outer Harmony",
+      heading: "Guided Yoga Sessions",
       text: "Stretch, strengthen, and balance with tailored yoga sessions.",
+      url: "/yoga-sessions",
     },
     {
       heading: "Chanting & Mantra Therapy",
       text: "Experience healing vibrations through the power of sacred chants.",
+      url: "/chanting-mantra",
     },
   ];
 
@@ -21,6 +25,7 @@ export default function SessionsSection() {
     {
       heading: "Personalized Wellness Consultations",
       text: "Tailor your experience to your unique needs.",
+      url: "/personalized-consultation",
     },
   ];
 
@@ -46,7 +51,9 @@ export default function SessionsSection() {
                 <div className="content-heading">{category.heading}</div>
                 <div className="text">{category.text}</div>
                 <div className="action">
-                  <button className="btn">Explore</button>
+                  <a href={category.url} className="btn">
+                    Explore
+                  </a>
                 </div>
               </div>
             </div>
@@ -62,7 +69,9 @@ export default function SessionsSection() {
                 <div className="content-heading">{category.heading}</div>
                 <div className="text">{category.text}</div>
                 <div className="action">
-                  <button className="btn">Explore</button>
+                  <a href={category.url} className="btn">
+                    Explore
+                  </a>
                 </div>
               </div>
             </div>
