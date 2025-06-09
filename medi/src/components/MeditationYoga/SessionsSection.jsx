@@ -35,10 +35,10 @@ export default function SessionsSection() {
         <div className="tagline-wrapper">
           <span className="tagline-text">Uncover Serenity</span>
         </div>
-        <div className="content">
+        <div className="section-title-content">
           <span className="heading">Explore Peace Through Our Practices</span>
           <span className="text">
-            Uuuunwind, Rejuvenate, and Thrive with Timeless Wisdom.
+            Unwind, Rejuvenate, and Thrive with Timeless Wisdom.
           </span>
         </div>
       </div>
