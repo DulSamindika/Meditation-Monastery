@@ -10,6 +10,9 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+import NavBar from './NavBar';
+import Footer from './Footer';
+
 function Home() {
 
 
@@ -17,12 +20,27 @@ function Home() {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  useEffect(() => {
+      const handleScroll = () => {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 10) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      };
   
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
+
+    
   return (
     <>
       {/* Header */}
-      <header id="header" className="header d-flex align-items-center fixed-top">
+      
+      {/*<header id="header" className="header d-flex align-items-center fixed-top" style={{ transition: "background-color 0.3s ease" }}>
         <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
           <a href="#hero" className="logo d-flex align-items-center">
             <h1 className="sitename">MeditationMonastery</h1>
@@ -59,7 +77,8 @@ function Home() {
             <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
         </div>
-      </header>
+      </header>*/}
+      <NavBar />
 
       {/* Main Content */}
       <main className="main">
@@ -270,13 +289,14 @@ function Home() {
         <div className="testimonial-item">
           <img src="assets/img/testimonials/testimonials-1.jpg" className="testimonial-img" alt="" />
           <h3>Saul Goodman</h3>
-          <h4>Ceo &amp; Founder</h4>
+          <h4>France</h4>
           <div className="stars">
             <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
           </div>
           <p>
             <i className="bi bi-quote quote-icon-left"></i>
-            <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus...</span>
+            <span>Very large room with large, comfortable bed eqipped with mosquito net. Bathroom small but efficient. Individual terraces with amazing views. 
+              I booked for the meditation and was not disappointed. </span>
             <i className="bi bi-quote quote-icon-right"></i>
           </p>
         </div>
@@ -286,13 +306,15 @@ function Home() {
         <div className="testimonial-item">
           <img src="assets/img/testimonials/testimonials-2.jpg" className="testimonial-img" alt="" />
           <h3>Sara Wilsson</h3>
-          <h4>Designer</h4>
+          <h4>Spain</h4>
           <div className="stars">
             <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
           </div>
           <p>
             <i className="bi bi-quote quote-icon-left"></i>
-            <span>Export tempor illum tamen malis malis eram quae irure esse labore...</span>
+            <span> 
+An oasis. Had the most relaxing 4 days at the accommodation. So peaceful and quiet but minutes from town. Delicious dinners, 
+clean and comfortable rooms with actual hot water showers. Meditation...</span>
             <i className="bi bi-quote quote-icon-right"></i>
           </p>
         </div>
@@ -302,13 +324,14 @@ function Home() {
         <div className="testimonial-item">
           <img src="assets/img/testimonials/testimonials-3.jpg" className="testimonial-img" alt="" />
           <h3>Jena Karlis</h3>
-          <h4>Store Owner</h4>
+          <h4>Germany</h4>
           <div className="stars">
             <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
           </div>
           <p>
             <i className="bi bi-quote quote-icon-left"></i>
-            <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla...</span>
+            <span>The location is perfect! Beautiful mountain view, right next to the temple, great conversations with the really kind and helpful 
+              monk who is running the monastery stay and beautiful meditation...</span>
             <i className="bi bi-quote quote-icon-right"></i>
           </p>
         </div>
@@ -318,41 +341,116 @@ function Home() {
         <div className="testimonial-item">
           <img src="assets/img/testimonials/testimonials-4.jpg" className="testimonial-img" alt="" />
           <h3>Matt Brandon</h3>
-          <h4>Freelancer</h4>
+          <h4>Slovakia</h4>
           <div className="stars">
             <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
           </div>
           <p>
             <i className="bi bi-quote quote-icon-left"></i>
-            <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim...</span>
+            <span>This place is a gem! 😊
+The views are stunning, and I wish we could stay longer.
+The room is comfortable, clean, and bright. We had the apartment on the top. It exceeded our expectations.</span>
             <i className="bi bi-quote quote-icon-right"></i>
           </p>
         </div>
       </SwiperSlide>
 
-      <SwiperSlide>
-        <div className="testimonial-item">
-          <img src="assets/img/testimonials/testimonials-5.jpg" className="testimonial-img" alt="" />
-          <h3>John Larson</h3>
-          <h4>Entrepreneur</h4>
-          <div className="stars">
-            <i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i><i className="bi bi-star-fill"></i>
-          </div>
-          <p>
-            <i className="bi bi-quote quote-icon-left"></i>
-            <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor...</span>
-            <i className="bi bi-quote quote-icon-right"></i>
-          </p>
-        </div>
-      </SwiperSlide>
-
+      
       <div className="swiper-pagination"></div>
     </Swiper>
   </div>
 </section>
 
 
-    
+{/* Section Gallery start */}
+    <section id="gallery" class="gallery section">
+
+      
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-1.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-1.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-2.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-2.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-3.jpeg" alt="" class="img-fluid"/>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-4.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-4.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-5.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-5.jpeg" alt="" class="img-fluid"/>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-6.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-6.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-7.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-7.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="assets/img/gallery/gallery-8.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="assets/img/gallery/gallery-8.jpeg" alt="" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+
+<Footer/>  
    </main>
     </>
   );
