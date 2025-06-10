@@ -1,21 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("../Middleware/upload"); // The upload.js you provided earlier
-const Video = require("../Database/models/meditationvideo"); // Assuming this is the correct path to your video model
+const Video = require("../Database/models/yogavideo"); // Assuming this is the correct path to your video model
 
 // Create Video
-router.post("/upload", upload.single("video"), async (req, res) => {
+router.post("/yoga/upload", upload.single("video"), async (req, res) => {
   try {
-    const { title, description, date } = req.body;
+    const { title, duration, description, date, speaker } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ message: "No video file uploaded." });
     }
 
+    if (!title || !duration || !description || !date || !speaker) {
+      return res.status(400).json({ message: "All fields are required." });
+    }
+
     const newVideo = new Video({
       title,
+      duration,
       description,
       date,
+      speaker,
       filePath: `/uploads/videos/${req.file.filename}`,
     });
 
@@ -26,9 +32,8 @@ router.post("/upload", upload.single("video"), async (req, res) => {
     res.status(500).json({ message: "Failed to upload video." });
   }
 });
-
 // Read All Videos
-router.get("/", async (req, res) => {
+router.get("/yoga/", async (req, res) => {
   try {
     const videos = await Video.find();
     res.status(200).json(videos);
@@ -38,14 +43,14 @@ router.get("/", async (req, res) => {
 });
 
 // Update Video
-router.put("/:id", async (req, res) => {
+router.put("/yoga/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, date } = req.body;
+    const { title, duration, description, date, speaker } = req.body;
 
     const updatedVideo = await Video.findByIdAndUpdate(
       id,
-      { title, description, date },
+      { title, duration, description, date, speaker },
       { new: true }
     );
 
@@ -55,7 +60,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 // Delete Video
-router.delete("/:id", async (req, res) => {
+router.delete("/yoga/:id", async (req, res) => {
   try {
     const { id } = req.params;
     await Video.findByIdAndDelete(id);

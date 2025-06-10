@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const MeditationvideoSchema = new mongoose.Schema(
+const YogavideoSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -30,4 +30,4 @@ const MeditationvideoSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("MeditationVideo", MeditationvideoSchema);
+module.exports = mongoose.model("YogaVideo", YogavideoSchema);
