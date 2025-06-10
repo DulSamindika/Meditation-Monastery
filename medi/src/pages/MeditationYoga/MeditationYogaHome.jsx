@@ -1,4 +1,6 @@
 import React from "react";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
 import "./MeditationYogaHome.css";
 import MWelcomeBanner from "../../components/MeditationYoga/WelcomeBanner";
 import BenefitsSection from "../../components/MeditationYoga/BenefitsSection";
@@ -8,15 +10,13 @@ import EventsSection from "../../components/MeditationYoga/EventsSection";
 function MeditationYogaHome() {
   return (
     <>
-      <header>Navbar should place here</header>
+      <NavBar />
       <MWelcomeBanner />
       <BenefitsSection />
       <SessionsSection />
       <EventsSection />
       <div>
-        <p>
-          Explore our yoga and meditation sessions for a peaceful mind and body.
-        </p>
+        <Footer />
       </div>
     </>
   );
