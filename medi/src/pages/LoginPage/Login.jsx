@@ -14,7 +14,27 @@ const Login = () => {
 
             <h1 className='text-center p-[12px] font-bold text-[20px] lg:text-[30px]'>Login</h1>
 
+            
+            <div className='p-[0px]'>
 
+                  <div className='flex flex-col justify-center items-start p-1'>
+                <div className='flex  items-start'>UserName</div>
+                <input type="text" placeholder='UserName' className='p-2 w-[250px]  h-[35px] lg:w-[290px] border border-gray-500 rounded focus:outline-none' />
+            </div>
+
+            
+            <div className='flex flex-col justify-center items-start p-1'>
+                <div className='flex  items-start'>Password</div>
+                <input type="password" placeholder='Password' className='p-2 w-[250px] h-[35px] lg:w-[290px] border border-gray-500 rounded focus:outline-none' />
+            </div>
+
+           <div className="flex items-center  mb-4 p-1">
+                <input  type="checkbox"className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:blue-500" />
+                <label className="ml-2 text-sm text-gray-700"> Remember me</label>
+          </div>
+
+
+             </div>
           </div>
        </div>
    </div>
