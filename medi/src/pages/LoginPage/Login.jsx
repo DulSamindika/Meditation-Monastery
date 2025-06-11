@@ -41,7 +41,7 @@ const Login = () => {
                  <button className='hover:bg-[#1acc8d] bg-[#013220] p-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[100px]  lg:w-[180px] '>Login</button>
           </div>
 
-          <label className='text-[16px] p-1 text-gray-800  '> Not Registerd yet? <button onClick={() => navigate('/register')} className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'>Sign Up</button>
+          <label className='text-[16px] p-1 text-gray-800  '> Not Registerd yet? <button onClick={() => navigate('/signup')} className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'>Sign Up</button>
 
 </label>
 
