@@ -35,8 +35,12 @@ const Signup = () => {
                 <div className='flex  items-start text-[14px]'>Password</div>
                 <input type="password" placeholder='Password' className='p-2  w-[255px] h-[35px] lg:w-[275px] border border-gray-500 rounded focus:outline-none text-[14px]' />
             </div>
-            </div>
 
+               <div className='flex justify-center'>
+                 <button className='hover:bg-[#1acc8d] bg-[#013220] px-3 py-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[130px] lg:w-[180px] '>Sign Up</button>
+          </div>
+
+            </div>
        </div>
         </div> 
       </div>
