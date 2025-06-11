@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+
+     const navigate=useNavigate();
+
   return (
     <div
       className='min-h-screen bg-cover bg-center flex flex-col md:flex-row justify-center gap-x-0 md:gap-x-1 lg:gap-x-[100px]'
@@ -75,7 +79,7 @@ const Signup = () => {
 
             <label className='text-[16px] pt-3 text-gray-800'>
               Already exist?
-              <button className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'>
+              <button onClick={() => navigate('/login')} className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'>
                 Login
               </button>
             </label>
