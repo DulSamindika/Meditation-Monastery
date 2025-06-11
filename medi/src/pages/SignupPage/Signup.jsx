@@ -23,7 +23,7 @@ const Signup = () => {
             
             <div className='flex flex-col justify-center items-start p-0'>
                 <div className='flex  items-start text-[14px]'>Email</div>
-                <input type="text" placeholder='Email' className='p-2 w-[255px] lg:w-[275px] h-[35px]  border border-gray-500 rounded focus:outline-none text-[14px]' />
+                <input type="email" placeholder='Email' className='p-2 w-[255px] lg:w-[275px] h-[35px]  border border-gray-500 rounded focus:outline-none text-[14px]' />
             </div>
 
              <div className='flex flex-col justify-center items-start p-0'>
