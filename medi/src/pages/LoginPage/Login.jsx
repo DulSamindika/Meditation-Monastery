@@ -9,7 +9,15 @@ const Login = () => {
       <div className='text-xl text-center italic font-light md:mt-2 mb-3'>KithalElla</div>
     </div>
 
+     <div className='flex items-center justify-center'>
+       <div className='bg-gray-300/65 w-[290px] lg:w-[336px] h-[380px] lg:h-[415px] rounded-[8px] p-[15px] pl-[18px] ml-0 md:ml-[60px] lg:ml-[100px]'>
+
+            <h1 className='text-center p-[12px] font-bold text-[20px] lg:text-[30px]'>Login</h1>
+
+
+          </div>
        </div>
+   </div>
   )
 }
 
