@@ -33,6 +33,11 @@ const Login = () => {
                 <label className="ml-2 text-sm text-gray-700"> Remember me</label>
           </div>
 
+            <div className='flex justify-center pb-3 '>
+                 <button className='hover:bg-[#1acc8d] bg-[#013220] p-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[100px]  lg:w-[180px] '>Login</button>
+          </div>
+
+
 
              </div>
           </div>
