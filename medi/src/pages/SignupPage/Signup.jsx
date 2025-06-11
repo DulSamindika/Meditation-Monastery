@@ -14,6 +14,29 @@ const Signup = () => {
 
             <h1 className='text-center p-[12px] font-bold text-[20px] lg:text-[30px]'>Sign Up</h1>
 
+              <div className='p-[13px]'>
+                  <div className='flex flex-col justify-center items-start p-0'>
+                <div className='flex  items-start text-[14px]'>Name</div>
+                <input type="text" placeholder='Name' className='p-2 w-[255px] lg:w-[275px] h-[35px] border border-gray-500 rounded focus:outline-none text-[14px]' />
+            </div>
+
+            
+            <div className='flex flex-col justify-center items-start p-0'>
+                <div className='flex  items-start text-[14px]'>Email</div>
+                <input type="text" placeholder='Email' className='p-2 w-[255px] lg:w-[275px] h-[35px]  border border-gray-500 rounded focus:outline-none text-[14px]' />
+            </div>
+
+             <div className='flex flex-col justify-center items-start p-0'>
+                <div className='flex  items-start text-[14px]'>Country</div>
+                <input type="text" placeholder='Country' className='p-2 w-[255px] h-[35px] lg:w-[275px] border border-gray-500 rounded focus:outline-none text-[14px]' />
+            </div>
+
+             <div className='flex flex-col justify-center items-start pb-3 p-0'>
+                <div className='flex  items-start text-[14px]'>Password</div>
+                <input type="password" placeholder='Password' className='p-2  w-[255px] h-[35px] lg:w-[275px] border border-gray-500 rounded focus:outline-none text-[14px]' />
+            </div>
+            </div>
+
        </div>
         </div> 
       </div>
