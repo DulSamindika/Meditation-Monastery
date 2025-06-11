@@ -5,6 +5,11 @@ const Login = () => {
 
    const navigate= useNavigate();
 
+    const handleLogin = () => {
+    
+    navigate('/accommodation');
+  };
+
   return (
     <div className='min-h-screen bg-cover bg-center flex flex-col md:flex-row  justify-center'style={{ backgroundImage: "url('assets/img/BgLog.png')",}}>
       
@@ -38,7 +43,7 @@ const Login = () => {
           </div>
 
             <div className='flex justify-center pb-3 '>
-                 <button className='hover:bg-[#1acc8d] bg-[#013220] p-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[100px]  lg:w-[180px] '>Login</button>
+                 <button  onClick={handleLogin} className='hover:bg-[#1acc8d] bg-[#013220] p-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[100px]  lg:w-[180px] '>Login</button>
           </div>
 
           <label className='text-[16px] p-1 text-gray-800  '> Not Registerd yet? <button onClick={() => navigate('/signup')} className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'>Sign Up</button>
