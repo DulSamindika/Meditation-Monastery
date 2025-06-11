@@ -13,6 +13,7 @@ import Login from "./pages/LoginPage/Login";
 
 import GuidedMeditation from "./pages/MeditationYoga/GuidedMeditation";
 import AdminMediVideos from "./pages/Admin/AdminMediVideos";
+import Signup from "./pages/SignupPage/Signup";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/*<Route path="/home" element={<Home />} /> */}
 
         <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
         <Route path="/" element={<Home />} />
         <Route path="/accommodation/*" element={<Accommodation />} />
         <Route path="/meditation-yoga" element={<MeditationYogaHome />} />
