@@ -40,6 +40,8 @@ const Signup = () => {
                  <button className='hover:bg-[#1acc8d] bg-[#013220] px-3 py-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[130px] lg:w-[180px] '>Sign Up</button>
           </div>
 
+                <label className='text-[16px] pt-3 text-gray-800 '> Not Registerd yet? <button className='text-gray-900 font-semibold' >Login </button></label>
+
             </div>
        </div>
         </div> 
