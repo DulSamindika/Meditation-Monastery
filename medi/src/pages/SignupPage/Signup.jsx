@@ -1,13 +1,16 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [role, setRole] = useState('user');
 
-     const navigate=useNavigate();
-
-      const handleSignup = () => {
-    
-    navigate('/accommodation');
+  const handleSignup = () => {
+    if (role === 'admin') {
+      navigate('/adminmedivideos');
+    } else {
+      navigate('/accommodation');
+    }
   };
 
   return (
@@ -24,7 +27,6 @@ const Signup = () => {
         <div className='bg-gray-300 bg-opacity-80 w-[316px] lg:w-[330px] h-[415px] lg:h-[475px] rounded-[8px] p-[13px] md:ml-[75px]'>
           <h1 className='text-center p-[12px] font-bold text-[20px] lg:text-[30px]'>Sign Up</h1>
 
-          {/* Reduced top gap below heading */}
           <div className='pt-1 px-[13px] pb-[13px]'>
             <div className='flex flex-col justify-center items-start p-0'>
               <div className='flex items-start text-[14px]'>Name</div>
@@ -66,21 +68,37 @@ const Signup = () => {
               <span className='flex items-start text-[14px]'>Register as</span>
               <div className='flex items-center gap-x-5'>
                 <label className='flex items-center gap-1'>
-                  <input type='radio' name='role' value='admin' className='accent-green-900' />
+                  <input
+                    type='radio'
+                    name='role'
+                    value='admin'
+                    className='accent-green-900'
+                    onChange={(e) => setRole(e.target.value)}
+                  />
                   Admin
                 </label>
                 <label className='flex items-center gap-1'>
-                  <input type='radio' name='role' value='user' className='accent-green-900' />
+                  <input
+                    type='radio'
+                    name='role'
+                    value='user'
+                    className='accent-green-900'
+                    defaultChecked
+                    onChange={(e) => setRole(e.target.value)}
+                  />
                   User
                 </label>
               </div>
             </div>
 
             <div className='flex justify-center'>
-            <button onClick={handleSignup} className='flex items-center justify-center hover:bg-[#1acc8d] bg-[#013220] rounded-[14px] text-[14px] h-[35px] lg:text-[18px] text-white w-[130px] lg:w-[180px]'>
-            Sign Up
-            </button>
-             </div>
+              <button
+                onClick={handleSignup}
+                className='flex items-center justify-center hover:bg-[#1acc8d] bg-[#013220] rounded-[14px] text-[14px] h-[35px] lg:text-[18px] text-white w-[130px] lg:w-[180px]'
+              >
+                Sign Up
+              </button>
+            </div>
 
             <label className='text-[16px] pt-3 text-gray-800'>
               Already exist?
@@ -92,7 +110,7 @@ const Signup = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
