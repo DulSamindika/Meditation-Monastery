@@ -5,6 +5,11 @@ const Signup = () => {
 
      const navigate=useNavigate();
 
+      const handleSignup = () => {
+    
+    navigate('/accommodation');
+  };
+
   return (
     <div
       className='min-h-screen bg-cover bg-center flex flex-col md:flex-row justify-center gap-x-0 md:gap-x-1 lg:gap-x-[100px]'
@@ -72,7 +77,7 @@ const Signup = () => {
             </div>
 
             <div className='flex justify-center'>
-            <button className='flex items-center justify-center hover:bg-[#1acc8d] bg-[#013220] rounded-[14px] text-[14px] h-[35px] lg:text-[18px] text-white w-[130px] lg:w-[180px]'>
+            <button onClick={handleSignup} className='flex items-center justify-center hover:bg-[#1acc8d] bg-[#013220] rounded-[14px] text-[14px] h-[35px] lg:text-[18px] text-white w-[130px] lg:w-[180px]'>
             Sign Up
             </button>
              </div>
