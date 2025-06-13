@@ -8,6 +8,7 @@ const eventsRoutes = require("./Routes/events");
 const meditationvideoRoutes = require("./Routes/meditationvideos");
 const yogavideoRoutes = require("./Routes/yogavideos");
 const chantingvideoRoutes = require("./Routes/chantingvideos");
+const adminRoutes = require("./Routes/admin");
 
 const path = require("path");
 
@@ -22,7 +23,8 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 // Routes
-app.use("/events", eventsRoutes);
+app.use("/api/events", eventsRoutes);
+app.use("/api/auth", adminRoutes);
 
 // Static folder for uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
