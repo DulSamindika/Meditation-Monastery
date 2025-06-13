@@ -1,0 +1,76 @@
+.admin-form-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.uploaded-videos {
+  margin-top: 20px;
+}
+
+.uploaded-videos h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.uploaded-videos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.uploaded-videos li {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.uploaded-video-player {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+.uploaded-videos p {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+}

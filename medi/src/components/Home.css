@@ -138,6 +138,8 @@ h6 {
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header .logo {
@@ -163,9 +165,12 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #013220;
+  background-color: var(--background-color) !important;
 }
 
+.scrolled .header {
+  --background-color: #013220;
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/

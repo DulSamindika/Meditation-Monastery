@@ -1,5 +1,6 @@
 
 
+
 import './App.css';
 import Home from './components/Home';
 import { useEffect } from 'react';
@@ -16,6 +17,10 @@ import AdminDashboard from './pages/Admin/AdminDashboard';
 import AdminMediYoga from './pages/Admin/AdminMediYoga';
 import EventsManagement from './pages/Admin/EventsManagement';
 import EventForm from './pages/Admin/EventForm';
+import Login from "./pages/LoginPage/Login";
+import GuidedMeditation from "./pages/MeditationYoga/GuidedMeditation";
+import Signup from "./pages/SignupPage/Signup";
+import AdminMediVideos from './pages/Admin/AdminMediVideos';
 
 function App() {
   useEffect(() => {
@@ -32,6 +37,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/accommodation/*" element={<Accommodation />} />
         <Route path="/meditation-yoga" element={<MeditationYogaHome />} />
+        <Route path="/guided-meditation" element={<GuidedMeditation />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<Signup/>} />
         
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminDashboard />} />
@@ -39,6 +47,8 @@ function App() {
         <Route path="/admin/events/add" element={<EventForm />} />
         <Route path="/admin/events/edit/:id" element={<EventForm />} />
         <Route path="/admin/meditation-yoga" element={<AdminMediYoga />} />
+        <Route path="/admin/meditation-videos" element={<AdminMediVideos />} />
+        <Route path="/adminmedivideos" element={<AdminMediVideos />} />
       </Routes>
     </Router>
   );
