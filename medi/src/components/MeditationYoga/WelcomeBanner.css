@@ -1,6 +1,8 @@
 /* WelcomeBanner.css */
 .welcome_banner_container {
   display: flex;
+  padding-top: 50px;
+  margin-top: 50px;
   margin-left: 0px;
   margin-right: 0px;
   background-color: #ffffff;
