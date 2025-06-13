@@ -29,13 +29,14 @@ const Login = () => {
   };
 
   return (
-    <div className='min-h-screen bg-cover bg-center flex flex-col md:flex-row justify-center' style={{ backgroundImage: "url('assets/img/BgLog.png')" }}>
-      <div className='text-2xl text-white md:text-[23px] lg:text-3xl md:mt-[80px] lg:mt-[70px] text-center md:ml-[-150px] lg:ml-[-250px] font-serif leading-snug'>
+    <div className='min-h-screen bg-cover bg-center ' style={{ backgroundImage: "url('assets/img/BgLog.png')" }}>
+      <div className='md:flex md:justify-center md:pt-[150px]'>
+<div className='text-2xl text-white md:text-[23px] lg:text-4xl  font-bold  font-serif leading-snug'>
         <div className='md:ml-[35px]'>Meditation Monastery</div>
         <div className='text-xl text-center italic font-light md:mt-2 mb-3'>KithalElla</div>
       </div>
 
-      <div className='flex items-center justify-center'>
+      <div className='flex items-center justify-center '>
         <div className='bg-gray-300/65 w-[290px] lg:w-[336px] h-[380px] lg:h-[415px] rounded-[8px] p-[15px] pl-[18px] ml-0 md:ml-[60px] lg:ml-[100px]'>
 
           <h1 className='text-center p-[12px] font-bold text-[20px] lg:text-[30px]'>Login</h1>
@@ -91,6 +92,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+      </div>
+      
     </div>
   );
 };
