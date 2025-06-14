@@ -65,12 +65,9 @@ const Login = () => {
               />
             </div>
 
-            <div className="flex items-center mb-4 p-1">
-              <input type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
-              <label className="ml-2 text-sm text-gray-700"> Remember me</label>
-            </div>
+            
 
-            <div className='flex justify-center pb-3'>
+            <div className='flex justify-center p-3'>
               <button
                 onClick={handleLogin}
                 className='hover:bg-[#1acc8d] bg-[#013220] p-2 rounded-[14px] text-[16px] lg:text-[18px] text-white w-[100px] lg:w-[180px]'
@@ -89,7 +86,7 @@ const Login = () => {
               </button>
             </label>
              <label className='text-[16px] p-1 text-gray-800'>
-              If you are an Admin ?
+              If you are an Admin ? 
               <button
                 onClick={() => navigate('/signup')}
                 className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'
