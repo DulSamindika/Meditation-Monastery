@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [role, setRole] = useState('user');
+  
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [country, setCountry] = useState('');
@@ -13,7 +13,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    const data = { role, name, email, country, password };
+    const data = {  name, email, country, password };
 
     try {
       const response = await axios.post(`http://localhost:5000/signUp`, data);
@@ -84,32 +84,7 @@ const Signup = () => {
               />
             </div>
 
-            <div className='flex flex-col justify-center items-start pb-3 p-0'>
-              <label className='text-[14px]'>Register as</label>
-              <div className='flex items-center gap-x-5'>
-                <label className='flex items-center gap-1'>
-                  <input
-                    type='radio'
-                    name='role'
-                    value='admin'
-                    className='accent-green-900'
-                    onChange={(e) => setRole(e.target.value)}
-                  />
-                  Admin
-                </label>
-                <label className='flex items-center gap-1'>
-                  <input
-                    type='radio'
-                    name='role'
-                    value='user'
-                    className='accent-green-900'
-                    defaultChecked
-                    onChange={(e) => setRole(e.target.value)}
-                  />
-                  User
-                </label>
-              </div>
-            </div>
+           
 
             <div className='flex justify-center'>
               <button

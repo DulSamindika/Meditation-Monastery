@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 // --- Signup Route ---
 authRouter.post("/signUp", async (req, res) => {
-  const { name, email, country, password, role } = req.body;
+  const { name, email, country, password } = req.body;
 
   try {
     const salt = await bcrypt.genSalt(10);
@@ -16,7 +16,7 @@ authRouter.post("/signUp", async (req, res) => {
       email,
       country,
       password: hashedPassword,
-      role,
+    
     });
 
     await newUser.save();
@@ -53,7 +53,7 @@ authRouter.post("/login", async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        role: user.role,
+    
       }
     });
   } catch (error) {

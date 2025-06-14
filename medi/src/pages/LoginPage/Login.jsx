@@ -88,6 +88,15 @@ const Login = () => {
                 Sign Up
               </button>
             </label>
+             <label className='text-[16px] p-1 text-gray-800'>
+              If you are an Admin ?
+              <button
+                onClick={() => navigate('/signup')}
+                className='text-gray-900 font-semibold bg-transparent p-0 m-0 border-none'
+              >
+                Log In
+              </button>
+            </label>
           </div>
         </div>
       </div>
