@@ -1,7 +1,7 @@
 const Users = require("../Database/models/users");
 const express = require("express");
 const authRouter = express.Router();
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 // --- Signup Route ---
 authRouter.post("/signUp", async (req, res) => {

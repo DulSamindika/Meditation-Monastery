@@ -7,16 +7,22 @@ const User = require('../Database/models/user');
 // Admin login route
 router.post('/admin/login', async (req, res) => {
   try {
+    console.log('Login attempt:', req.body);
     const { email, password } = req.body;
 
     // Find user by email
     const user = await User.findOne({ email });
+    console.log('User found:', user ? { 
+      email: user.email, 
+      isAdmin: user.isAdmin 
+    } : 'No user found');
+    
     if (!user || !user.isAdmin) {
       return res.status(401).json({ message: 'Invalid credentials' });
-    }
-
-    // Check password
+    }    // Check password
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log('Password match:', isMatch);
+    
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }

@@ -19,12 +19,20 @@ const path = require("path");
 const PORT = 5000;
 dotenv.config();
 
+// Connect to MongoDB
+// Initialize database connection
 connectDB(process.env.MONGO_URL);
-//.then(() => {
-//console.log("DB connected");}).catch((err)=> {console.log(err);});
+
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
+
+// Logger middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 // Routes
 app.use("/api/events", eventsRoutes);
