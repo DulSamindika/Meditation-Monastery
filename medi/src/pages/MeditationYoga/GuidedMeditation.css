@@ -1,81 +1,144 @@
-.guided-meditation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #f0f0f0;
-  margin-top: 75px;
-}
-.guided-meditation {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f9f9f9;
-}
-
-.main-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.main-header h1 {
-  font-size: 2rem;
-  color: #333;
-}
-
-.main-header p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.video-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.video-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* Global Styles */
+.navbar {
+  z-index: 1000;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+head {
+  display: flex;
+  margin-left: 32px;
+  text-align: left;
+  padding: 20px 0;
+  margin-top: 80px;
+}
+.tagline {
+  margin-left: 32px;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 10px;
+  text-align: left;
+}
+.title {
+  margin-left: 32px;
+  font-size: 2.5rem;
+  margin-top: 5px;
+  color: #333;
+  text-align: left;
 }
 
-.video-player {
+.desc {
+  margin-left: 32px;
+  color: #555;
+  font-size: 1.1rem;
+  text-align: left;
+}
+
+/* Featured Video Section */
+.featured-video-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 0;
   width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd;
+  background-color: #f4f4f4;
+}
+
+.featured-video-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 95%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 0px;
+  border: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.featured-video {
+  width: 50%;
+  max-height: 350px;
+  border-radius: 10px;
+  background-color: black;
 }
 
 .video-details {
-  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.video-details h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #333;
+.video-details h2 {
+  font-size: 1.8rem;
 }
 
 .video-details p {
-  font-size: 0.9rem;
-  margin-bottom: 15px;
+  font-size: 1rem;
   color: #555;
+  margin: 5px 0;
+}
+.video-details p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
 }
 
-.speaker-info {
-  display: flex;
-  align-items: center;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .featured-video-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .featured-video {
+    width: 100%;
+    height: auto;
+  }
+
+  .video-details {
+    text-align: center;
+  }
 }
 
-.speaker-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+/* Video Grid */
+.grid-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
 }
-
-.speaker-info p {
+/* Video Grid */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensures 3 videos per row */
+  gap: 20px;
+  padding: 0 20px;
+}
+/* Video Grid */
+.grid-details p {
   font-size: 0.9rem;
-  color: #666;
+  color: #555;
+  margin: 5px 0;
+
+  /* Limit description to two lines */
+  display: -webkit-box; /* Enables flex container for text */
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical; /* Vertical orientation for clamping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+}
+/* Responsive Design for Smaller Screens */
+@media (max-width: 992px) {
+  /* For tablets */
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 videos per row */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For mobile devices */
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 video per row */
+  }
 }
