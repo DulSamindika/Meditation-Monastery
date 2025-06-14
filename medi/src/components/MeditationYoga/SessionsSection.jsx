@@ -12,7 +12,7 @@ export default function SessionsSection() {
     {
       heading: "Guided Yoga Sessions",
       text: "Stretch, strengthen, and balance with tailored yoga sessions.",
-      url: "/yoga-sessions",
+      url: "/guided-yoga",
     },
     {
       heading: "Chanting & Mantra Therapy",

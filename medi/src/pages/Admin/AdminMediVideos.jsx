@@ -47,7 +47,7 @@ export default function AdminMediVideos() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/videos/upload",
+        "http://localhost:5000/api/videos/meditation/upload",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -72,7 +72,7 @@ export default function AdminMediVideos() {
 
   return (
     <div className="admin-form-container">
-      <h1>Manage Videos</h1>
+      <h1>Manage Upcoming Events</h1>
       <form onSubmit={handleUpload}>
         <input type="file" accept="video/*" onChange={handleFileChange} />
         <input
