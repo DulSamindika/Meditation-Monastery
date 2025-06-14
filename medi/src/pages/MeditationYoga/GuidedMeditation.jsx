@@ -79,6 +79,9 @@ export default function GuidedMeditation() {
             </div>
           ))}
       </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }

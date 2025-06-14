@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./Home.css";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   useEffect(() => {
@@ -66,28 +67,30 @@ export default function NavBar() {
                 <a href="#team">Team</a>
               </li>
               <li>
-                <a href="#pricing">Pricing</a>
+                <NavLink to="/accommodation/">
+                  <span> Accommodation</span>{" "}
+                </NavLink>
               </li>
               <li className="dropdown">
-                <a href="http://localhost:3000/meditation-yoga">
+                <NavLink to="/meditation-yoga">
                   <span> Meditation & Yoga</span>{" "}
                   <i className="bi bi-chevron-down toggle-dropdown"></i>
-                </a>
+                </NavLink>
                 <ul>
                   <li>
-                    <a href="http://localhost:3000/guided-meditation">
-                      Guided Meditation Sessions
-                    </a>
+                    <NavLink to="/guided-meditation">
+                      <span>Guided Meditation Sessions</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="http://localhost:3000/guided-yoga">
-                      Guided Yoga Sessions
-                    </a>
+                    <NavLink to="/guided-yoga">
+                      <span>Guided Yoga Sessions</span>
+                    </NavLink>
                   </li>
                   <li>
-                    <a href="http://localhost:3000/chanting-mantra">
-                      Pirith and Chanting
-                    </a>
+                    <NavLink to="/chanting-mantra">
+                      <span>Pirith and Chanting </span>
+                    </NavLink>
                   </li>
                 </ul>
               </li>
