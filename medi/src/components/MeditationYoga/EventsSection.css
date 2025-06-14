@@ -139,6 +139,7 @@
   height: 200px;
   background: lightgray 50% / cover no-repeat;
   overflow: hidden;
+  object-fit: cover;
   margin-bottom: -30px;
 }
 
