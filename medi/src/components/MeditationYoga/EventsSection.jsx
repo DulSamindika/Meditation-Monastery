@@ -18,7 +18,7 @@ export default function EventsSection() {
     setShowMore(!showMore);
   };
 
-  const firstRow = events.slice(0, 4); // Assuming a row contains 3 events
+  const firstRow = events.slice(0, 4); // Assuming a rows contains 3 events
   const otherRows = events.slice(4); // Remaining events
 
   return (
@@ -41,7 +41,7 @@ export default function EventsSection() {
 
       <div className="main-container">
         {/* First Row */}
-        <div className="row">
+        <div className="rows">
           {firstRow.map((event, index) => (
             <EventCard event={event} key={index} />
           ))}
@@ -49,7 +49,7 @@ export default function EventsSection() {
 
         {/* Other Rows */}
         {showMore && (
-          <div className="row">
+          <div className="rows">
             {otherRows.map((event, index) => (
               <EventCard event={event} key={index} />
             ))}

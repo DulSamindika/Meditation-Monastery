@@ -72,7 +72,7 @@ export default function BenefitsSection() {
 
         <div className="benefits-container">
           {benefits.map((benefit, index) => (
-            <div className="container" key={index}>
+            <div className="container-box" key={index}>
               <div className="left-icon">
                 <img src={benefit.img} alt={`${benefit.title} Icon`} />
               </div>
