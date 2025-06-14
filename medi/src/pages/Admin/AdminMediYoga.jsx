@@ -1,119 +1,143 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./AdminMediYoga.css";
+import "./AdminMediVideos.css";
 
-export default function AdminMediYoga() {
-  const [eventDetails, setEventDetails] = useState({
+export default function AdminMediVideos() {
+  const [videos, setVideos] = useState([]);
+  const [newVideo, setNewVideo] = useState({
     title: "",
-    location: "",
-    category: "",
-    date: "",
+    duration: "",
     description: "",
-    imageURL: "", // Optional field for the event image URL
+    date: "",
+    speaker: "",
   });
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setEventDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
+  // Fetch videos
+  const fetchVideos = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/api/videos/meditation"
+      );
+      setVideos(response.data);
+    } catch (error) {
+      console.error("Error fetching videos:", error);
+    }
   };
 
-  const handleSubmit = async (e) => {
+  useEffect(() => {
+    fetchVideos(); // Fetch videos when the component mounts
+  }, []);
+
+  // Handle File Change
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  // Handle Upload
+  const handleUpload = async (e) => {
     e.preventDefault();
+
+    if (!selectedFile) {
+      alert("Please select a video file.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("video", selectedFile);
+    formData.append("title", newVideo.title);
+    formData.append("duration", newVideo.duration);
+    formData.append("description", newVideo.description);
+    formData.append("date", newVideo.date);
+    formData.append("speaker", newVideo.speaker);
+
     try {
-      // Send event details to the backend
       const response = await axios.post(
-        "http://localhost:5000/events",
-        eventDetails
+        "http://localhost:5000/api/videos/meditation/upload",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
       );
-      if (response.status === 201) {
-        alert("Event added successfully!");
-        // Reset form fields after successful submission
-        setEventDetails({
-          title: "",
-          location: "",
-          category: "",
-          date: "",
-          description: "",
-          imageURL: "",
-        });
-      } else {
-        console.error("Failed to add event:", response);
-      }
+      setVideos([...videos, response.data]);
+      alert("Video uploaded successfully!");
     } catch (error) {
-      console.error("Error while adding event:", error);
-      alert("An error occurred while adding the event. Please try again.");
+      console.error("Error uploading video:", error);
+    }
+  };
+
+  // Handle Delete
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/videos/meditation/${id}`);
+      setVideos(videos.filter((video) => video._id !== id));
+    } catch (error) {
+      console.error("Error deleting video:", error);
     }
   };
 
   return (
-    <div className="admin-page">
-      <h2>Admin Panel - Add Event</h2>
-      <form className="event-form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Event Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={eventDetails.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Location:</label>
-          <input
-            type="text"
-            name="location"
-            value={eventDetails.location}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Category:</label>
-          <input
-            type="text"
-            name="category"
-            value={eventDetails.category}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Date:</label>
-          <input
-            type="date"
-            name="date"
-            value={eventDetails.date}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={eventDetails.description}
-            onChange={handleChange}
-            required
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label>Image URL (optional):</label>
-          <input
-            type="text"
-            name="imageURL"
-            value={eventDetails.imageURL}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" className="submit-btn">
-          Add Event
-        </button>
+    <div className="admin-form-container">
+      <h1>Manage Meditation Videos</h1>
+      <form onSubmit={handleUpload}>
+        <input type="file" accept="video/*" onChange={handleFileChange} />
+        <input
+          type="text"
+          placeholder="Title"
+          value={newVideo.title}
+          onChange={(e) => setNewVideo({ ...newVideo, title: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Duration"
+          value={newVideo.duration}
+          onChange={(e) =>
+            setNewVideo({ ...newVideo, duration: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          placeholder="Description"
+          value={newVideo.description}
+          onChange={(e) =>
+            setNewVideo({ ...newVideo, description: e.target.value })
+          }
+        />
+        <input
+          type="date"
+          value={newVideo.date}
+          onChange={(e) => setNewVideo({ ...newVideo, date: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Speaker"
+          value={newVideo.speaker}
+          onChange={(e) =>
+            setNewVideo({ ...newVideo, speaker: e.target.value })
+          }
+        />
+        <button type="submit">Upload</button>
       </form>
+
+      <h2>Uploaded Videos</h2>
+      <ul>
+        {videos.map((video) => (
+          <li key={video._id}>
+            <video controls>
+              <source
+                src={`http://localhost:5000${video.filePath}`}
+                type="video/mp4"
+              />
+            </video>
+            <p>{video.title}</p>
+            <p>{video.duration}</p>
+            <p>{video.description}</p>
+            <p>{video.date}</p>
+            <p>{video.speaker}</p>
+            <button onClick={() => handleDelete(video._id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

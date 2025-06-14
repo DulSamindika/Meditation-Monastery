@@ -11,6 +11,7 @@ import Accommodation from "./pages/Accommodation/Accommodation";
 import MeditationYogaHome from "./pages/MeditationYoga/MeditationYogaHome";
 
 import GuidedMeditation from "./pages/MeditationYoga/GuidedMeditation";
+import AdminMediYoga from "./pages/Admin/AdminMediYoga";
 import AdminMediVideos from "./pages/Admin/AdminMediVideos";
 
 function App() {
@@ -25,6 +26,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/accommodation/*" element={<Accommodation />} />
         <Route path="/meditation-yoga" element={<MeditationYogaHome />} />
+        {/* meditation yoga routes */}
+        <Route path="/admin-events" element={<AdminMediYoga />} />
+        <Route path="/admin-meditation-videos" element={<AdminMediVideos />} />
+        <Route path="/guided-meditation" element={<GuidedMeditation />} />
+
         <Route path="/guided-meditation" element={<GuidedMeditation />} />
         <Route path="/adminmedivideos" element={<AdminMediVideos />} />
       </Routes>
