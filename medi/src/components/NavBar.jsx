@@ -57,15 +57,11 @@ export default function NavBar() {
               <li>
                 <a href="#about">About</a>
               </li>
-              <li>
-                <a href="#features">Features</a>
-              </li>
+
               <li>
                 <a href="#gallery">Gallery</a>
               </li>
-              <li>
-                <a href="#team">Team</a>
-              </li>
+
               <li>
                 <NavLink to="/accommodation/">
                   <span> Accommodation</span>{" "}
