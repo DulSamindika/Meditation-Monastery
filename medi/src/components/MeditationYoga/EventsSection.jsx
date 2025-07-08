@@ -1,9 +1,51 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./EventsSection.css";
+import med01 from "../../images/med01.jpeg";
+import med02 from "../../images/med02.jpg";
+import med03 from "../../images/med03.jpg";
+import med04 from "../../images/yoga02.jpg";
 
 export default function EventsSection() {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState([
+    {
+      id: 1,
+      title: "Morning Meditation Session",
+      date: "2025-07-15",
+      category: "Meditation",
+      location: "Central Park, New York",
+      description:
+        "Start your day with peaceful meditation in nature's embrace.",
+      imageURL: med01,
+    },
+    {
+      id: 2,
+      title: "Mindfulness Workshop",
+      date: "2025-07-20",
+      category: "Workshop",
+      location: "Community Center, Los Angeles",
+      description: "Learn practical mindfulness techniques for daily life.",
+      imageURL: med01,
+    },
+    {
+      id: 3,
+      title: "Sunset Yoga & Meditation",
+      date: "2025-07-25",
+      category: "Yoga",
+      location: "Beach House, Miami",
+      description: "Combine yoga flow with meditation as the sun sets.",
+      imageURL: med01,
+    },
+    {
+      id: 4,
+      title: "Deep Relaxation Retreat",
+      date: "2025-08-01",
+      category: "Retreat",
+      location: "Mountain Lodge, Colorado",
+      description: "A full day retreat focused on deep relaxation and healing.",
+      imageURL: med01,
+    },
+  ]);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
