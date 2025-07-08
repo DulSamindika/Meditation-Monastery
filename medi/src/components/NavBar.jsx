@@ -50,9 +50,9 @@ export default function NavBar() {
           <nav id="navmenu" className="navmenu">
             <ul>
               <li>
-                <a href="#hero" className="active">
-                  Home
-                </a>
+                <NavLink to="/">
+                  <span> Home</span>
+                </NavLink>
               </li>
               <li>
                 <a href="#about">About</a>
