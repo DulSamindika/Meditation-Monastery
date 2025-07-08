@@ -80,7 +80,7 @@ function Home() {
       <NavBar />
 
       {/* Main Content */}
-      <main className="main ">
+      <main className="main">
         {/* Sections like Hero, About, Gallery, Testimonials, etc., go here */}
         {/* You can extract each into its own component file for clarity */}
         <section id="hero" className="hero section dark-background">
