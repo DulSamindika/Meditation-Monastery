@@ -14,37 +14,37 @@ export default function AdminDashboard() {
         </div>
         <nav className="admin-nav">
           <ul>
-            <li 
+            <li
               className={activeSection === "dashboard" ? "active" : ""}
               onClick={() => setActiveSection("dashboard")}
             >
               <i className="bi bi-speedometer2"></i> Dashboard
             </li>
-            <li 
+            <li
               className={activeSection === "events" ? "active" : ""}
               onClick={() => setActiveSection("events")}
             >
               <i className="bi bi-calendar-event"></i> Events
             </li>
-            <li 
+            <li
               className={activeSection === "rooms" ? "active" : ""}
               onClick={() => setActiveSection("rooms")}
             >
               <i className="bi bi-house-door"></i> Rooms
             </li>
-            <li 
+            <li
               className={activeSection === "bookings" ? "active" : ""}
               onClick={() => setActiveSection("bookings")}
             >
               <i className="bi bi-journal-bookmark"></i> Bookings
             </li>
-            <li 
+            <li
               className={activeSection === "users" ? "active" : ""}
               onClick={() => setActiveSection("users")}
             >
               <i className="bi bi-people"></i> Users
             </li>
-            <li 
+            <li
               className={activeSection === "settings" ? "active" : ""}
               onClick={() => setActiveSection("settings")}
             >
@@ -58,7 +58,7 @@ export default function AdminDashboard() {
           </button>
         </div>
       </div>
-      
+
       <div className="admin-content">
         <div className="admin-header">
           <h1>
@@ -74,7 +74,7 @@ export default function AdminDashboard() {
             <img src="/assets/img/admin-avatar.png" alt="Admin" />
           </div>
         </div>
-        
+
         <div className="admin-main-content">
           {activeSection === "dashboard" && (
             <div className="dashboard-stats">
@@ -100,40 +100,40 @@ export default function AdminDashboard() {
               </div>
             </div>
           )}
-          
+
           {activeSection === "events" && (
             <div className="admin-events">
               <div className="action-buttons">
-                <Link to="/admin/events/add" className="action-btn add-btn">
+                <Link to="/admin/events" className="action-btn add-btn">
                   <i className="bi bi-plus-circle"></i> Add New Event
                 </Link>
               </div>
-              
+
               <EventsManagement />
             </div>
           )}
-          
+
           {activeSection === "rooms" && (
             <div className="admin-rooms">
               <h3>Room Management Coming Soon</h3>
               <p>This feature is under development</p>
             </div>
           )}
-          
+
           {activeSection === "bookings" && (
             <div className="admin-bookings">
               <h3>Booking Management Coming Soon</h3>
               <p>This feature is under development</p>
             </div>
           )}
-          
+
           {activeSection === "users" && (
             <div className="admin-users">
               <h3>User Management Coming Soon</h3>
               <p>This feature is under development</p>
             </div>
           )}
-          
+
           {activeSection === "settings" && (
             <div className="admin-settings">
               <h3>Settings Coming Soon</h3>
@@ -150,10 +150,16 @@ export default function AdminDashboard() {
 function EventsManagement() {
   return (
     <div className="events-management">
-      <Link to="/admin/events" className="event-tab active">All Events</Link>
-      <Link to="/admin/events/upcoming" className="event-tab">Upcoming</Link>
-      <Link to="/admin/events/past" className="event-tab">Past Events</Link>
-      
+      <Link to="/admin/events" className="event-tab active">
+        All Events
+      </Link>
+      <Link to="/admin/events/upcoming" className="event-tab">
+        Upcoming
+      </Link>
+      <Link to="/admin/events/past" className="event-tab">
+        Past Events
+      </Link>
+
       <EventsList />
     </div>
   );
