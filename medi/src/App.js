@@ -109,7 +109,7 @@ function App() {
           }
         />
         <Route
-          path="/admin/events-management"
+          path="/admin/videos"
           element={
             <ProtectedRoute>
               <AdminMediVideos />

@@ -18,6 +18,15 @@ const ChantingvideoSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      required: true,
+      enum: ['meditation', 'yoga', 'chanting']
+    },
+    speaker: {
+      type: String,
+      required: true
+    },
     speaker: {
       type: String,
       required: true,

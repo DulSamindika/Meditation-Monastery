@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { format } from 'date-fns';
 import "./AdminMediVideos.css";
-import "./EventsManagement.css";
+import "./EventsManagement.css"; // Reuse events management styles
 
-const VideoManagement = () => {
+export default function VideoManagement() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -29,26 +30,13 @@ const VideoManagement = () => {
   const [videoFile, setVideoFile] = useState(null);
   const [thumbnailFile, setThumbnailFile] = useState(null);
 
-  // Fetch videos from all categories
+  // Fetch videos
   const fetchVideos = async () => {
     setLoading(true);
     try {
-      // Fetch from all video categories
-      const [meditationRes, yogaRes, chantingRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/meditation/videos"),
-        axios.get("http://localhost:5000/api/yoga/videos"),
-        axios.get("http://localhost:5000/api/chanting/videos")
-      ]);
-      
-      // Combine all videos with their types
-      const allVideos = [
-        ...meditationRes.data.map(v => ({ ...v, type: 'meditation' })),
-        ...yogaRes.data.map(v => ({ ...v, type: 'yoga' })),
-        ...chantingRes.data.map(v => ({ ...v, type: 'chanting' }))
-      ];
-      
-      setVideos(allVideos);
-      setError("");
+      const response = await axios.get("http://localhost:5000/api/videos");
+      setVideos(response.data);
+      setError(null);
     } catch (err) {
       console.error("Error fetching videos:", err);
       setError("Failed to load videos. Please try again.");
@@ -68,6 +56,7 @@ const VideoManagement = () => {
       ...prev,
       [name]: value
     }));
+    // Clear any previous errors when user types
     if (error) setError("");
   };
 
@@ -84,7 +73,7 @@ const VideoManagement = () => {
     }
 
     // Validate file size (max 100MB)
-    const maxSize = 100 * 1024 * 1024;
+    const maxSize = 100 * 1024 * 1024; // 100MB
     if (file.size > maxSize) {
       setError('Video file is too large. Maximum size is 100MB.');
       return;
@@ -107,7 +96,7 @@ const VideoManagement = () => {
     }
 
     // Validate file size (max 5MB)
-    const maxSize = 5 * 1024 * 1024;
+    const maxSize = 5 * 1024 * 1024; // 5MB
     if (file.size > maxSize) {
       setError('Thumbnail image is too large. Maximum size is 5MB.');
       return;
@@ -151,21 +140,15 @@ const VideoManagement = () => {
     formData.append('type', newVideo.type);
     
     try {
-      // Determine the correct upload endpoint based on video type
-      const uploadEndpoint = `http://localhost:5000/api/${newVideo.type}/videos/upload`;
-      
-      const response = await axios.post(uploadEndpoint, formData, {
+      const response = await axios.post('http://localhost:5000/api/videos/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
         timeout: 300000 // 5 minutes timeout for large uploads
       });
       
-      // Add the new video to the list with its type
-      setVideos(prevVideos => [
-        { ...response.data, type: newVideo.type },
-        ...prevVideos
-      ]);
+      // Add the new video to the list
+      setVideos(prevVideos => [response.data, ...prevVideos]);
       
       // Show success message
       setSuccessMessage('Video uploaded successfully!');
@@ -251,76 +234,56 @@ const VideoManagement = () => {
       const matchesType = !filterType || video.type === filterType;
       return matchesSearch && matchesType;
     })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by date descending
+
+  // Format date for display
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
   return (
-    <div className="admin-content">
-      <div className="admin-header">
-        <h1>Manage Videos</h1>
-        <div className="admin-actions">
-          <button 
-            className="add-btn"
-            onClick={() => setShowUploadForm(true)}
-            disabled={loading}
-          >
-            <i className="bi bi-plus-lg"></i> Add New Video
-          </button>
-        </div>
-      </div>
-      
-      {/* Success Message */}
-      {successMessage && (
-        <div className="success-message">
-          <i className="bi bi-check-circle"></i> {successMessage}
-        </div>
-      )}
-      
-      {/* Error Message */}
-      {error && (
-        <div className="error-message">
-          <i className="bi bi-exclamation-triangle"></i> {error}
-        </div>
-      )}
-      
+    <div className="events-management-container">
       {/* Search and Filter */}
-      <div className="search-filter">
-        <div className="search-box">
-          <i className="bi bi-search"></i>
-          <input
-            type="text"
-            placeholder="Search videos by title or description..."
+      <div className="events-filters">
+        <div className="search-container">
+          <input 
+            type="text" 
+            placeholder="Search videos..." 
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            disabled={loading}
+            className="search-input"
           />
         </div>
-        
-        <div className="filter-dropdown">
+        <div className="filter-container">
           <select 
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="form-select"
-            disabled={loading}
+            className="filter-select"
           >
             <option value="">All Types</option>
-            {videoTypes.map(type => (
-              <option key={type} value={type}>
-                {type.charAt(0).toUpperCase() + type.slice(1)}
-              </option>
-            ))}
+            <option value="meditation">Meditation</option>
+            <option value="yoga">Yoga</option>
+            <option value="chanting">Chanting</option>
           </select>
+          <button 
+            onClick={() => {setSearchTerm(""); setFilterType("")}} 
+            className="clear-filter-btn"
+          >
+            Clear Filters
+          </button>
         </div>
       </div>
-      
-      {/* Loading State */}
-      {loading && !showUploadForm ? (
-        <div className="loading-container">
+
+      {/* Action Buttons */}
+      <div className="events-actions">
+        <button 
           <div className="spinner"></div>
           <p>Loading videos...</p>
         </div>
       ) : (
         <div className="table-responsive">
-          <table className="videos-table">
+          <table className="events-table">
             <thead>
               <tr>
                 <th>Thumbnail</th>
@@ -385,7 +348,6 @@ const VideoManagement = () => {
                             setShowDeleteModal(true);
                           }}
                           title="Delete Video"
-                          disabled={loading}
                         >
                           <i className="bi bi-trash"></i>
                         </button>
@@ -412,28 +374,6 @@ const VideoManagement = () => {
             </tbody>
           </table>
         </div>
-      )}
-      
-      {/* Upload Video Modal */}
-      {showUploadForm && (
-        <div className="modal-overlay">
-          <div className="admin-modal">
-            <div className="modal-header">
-              <h3>Upload New Video</h3>
-              <button 
-                className="close-btn"
-                onClick={() => !loading && setShowUploadForm(false)}
-                disabled={loading}
-              >
-                &times;
-              </button>
-            </div>
-            
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Title*</label>
-                <input
-                  type="text"
                   name="title"
                   value={newVideo.title}
                   onChange={handleInputChange}
@@ -606,6 +546,4 @@ const VideoManagement = () => {
       )}
     </div>
   );
-};
-
-export default VideoManagement;
+}
