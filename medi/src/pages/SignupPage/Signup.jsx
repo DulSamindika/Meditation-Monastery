@@ -27,7 +27,7 @@ const Signup = () => {
 
   return (
     <div
-      className='min-h-screen bg-cover bg-center flex flex-col md:flex-row justify-center gap-x-0 md:gap-x-1 lg:gap-x-[100px]'
+      className='min-h-screen bg-cover bg-center -mt-[120px] flex flex-col md:flex-row justify-center gap-x-0 md:gap-x-1 lg:gap-x-[100px]'
       style={{ backgroundImage: "url('assets/img/BgReg.jpeg')" }}
     >
       <div className='text-2xl text-white md:text-[23px] lg:text-3xl md:mt-[80px] text-center md:ml-[-150px] font-serif leading-snug'>
