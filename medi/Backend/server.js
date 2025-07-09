@@ -41,10 +41,10 @@ app.use("/api/auth", adminRoutes);
 // Static folder for uploaded files
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Video Routes
-app.use("/api/videos", meditationvideoRoutes);
-app.use("/api/videos", yogavideoRoutes);
-app.use("/api/videos", chantingvideoRoutes);
+// Video Routes - Each type has its own path
+app.use("/api/meditation/videos", meditationvideoRoutes);
+app.use("/api/yoga/videos", yogavideoRoutes);
+app.use("/api/chanting/videos", chantingvideoRoutes);
 
 //user Routes
 app.use("/", userRoutes);

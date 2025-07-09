@@ -1,14 +1,14 @@
 .admin-dashboard {
   display: flex;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #f1f8e9;
   font-family: 'Inter', sans-serif;
 }
 
 /* Sidebar Styles */
 .admin-sidebar {
   width: 250px;
-  background-color: #013220;
+  background-color: #2e7d32;
   color: #fff;
   padding: 20px 0;
   display: flex;
@@ -19,7 +19,7 @@
 
 .admin-logo {
   padding: 0 20px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .admin-logo h2 {
@@ -164,7 +164,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
-  color: #013220;
+  color: #2e7d32;
 }
 
 .stat-info {
@@ -195,12 +195,12 @@
 }
 
 .add-btn {
-  background-color: #013220;
+  background-color: #2e7d32;
   color: #fff;
 }
 
 .add-btn:hover {
-  background-color: #025834;
+  background-color: #1b5e20;
 }
 
 /* Events Management Styles */
@@ -222,8 +222,8 @@
 }
 
 .event-tab.active {
-  color: #013220;
-  border-bottom-color: #013220;
+  color: #2e7d32;
+  border-bottom-color: #2e7d32;
 }
 
 /* Events Table */
@@ -246,11 +246,11 @@
 .events-table th {
   font-weight: 600;
   color: #444;
-  background-color: #f9f9f9;
+  background-color: #f1f8e9;
 }
 
 .events-table tbody tr:hover {
-  background-color: #f5f8ff;
+  background-color: #f1f8e9;
 }
 
 .events-table .event-image {
@@ -278,12 +278,12 @@
 }
 
 .edit-btn {
-  background-color: #e3f2fd;
-  color: #1976d2;
+  background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
 .edit-btn:hover {
-  background-color: #bbdefb;
+  background-color: #c8e6c9;
 }
 
 .delete-btn {
@@ -320,7 +320,7 @@
 
 .admin-modal h3 {
   margin-top: 0;
-  color: #013220;
+  color: #2e7d32;
 }
 
 .modal-actions {

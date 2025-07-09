@@ -1,6 +1,7 @@
 const express = require("express");
 const Event = require("../Database/models/events");
 const adminAuth = require("../Middleware/adminAuth");
+const upload = require("../Middleware/upload");
 
 const router = express.Router();
 
@@ -27,10 +28,14 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// POST /events - Add a new event (Admin only)
-router.post("/", adminAuth, async (req, res) => {
+// POST /events - Add a new event with optional image (Admin only)
+router.post("/", adminAuth, upload.single("image"), async (req, res) => {
   try {
-    const newEvent = new Event(req.body);
+    const body = { ...req.body };
+    if (req.file) {
+      body.imageURL = `/uploads/${req.file.filename}`;
+    }
+    const newEvent = new Event(body);
     const savedEvent = await newEvent.save();
     res.status(201).json(savedEvent);
   } catch (err) {
@@ -39,11 +44,14 @@ router.post("/", adminAuth, async (req, res) => {
 });
 
 // PUT /events/:id - Update an existing event (Admin only)
-router.put("/:id", adminAuth, async (req, res) => {
+router.put("/:id", adminAuth, upload.single("image"), async (req, res) => {
   try {
     const updatedEvent = await Event.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      {
+        ...req.body,
+        ...(req.file && { imageURL: `/uploads/${req.file.filename}` })
+      },
       { new: true, runValidators: true }
     );
     

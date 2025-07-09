@@ -30,7 +30,7 @@ export default function EventsManagement() {
   const fetchEvents = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://localhost:5000/events");
+      const response = await axios.get("http://localhost:5000/api/events");
       setEvents(response.data);
       setError(null);
     } catch (err) {
@@ -160,7 +160,7 @@ export default function EventsManagement() {
                       <td>
                         {event.imageURL ? (
                           <img 
-                            src={event.imageURL} 
+                            src={event.imageURL.startsWith('http') ? event.imageURL : `http://localhost:5000${event.imageURL}` } 
                             alt={event.title} 
                             className="event-image" 
                           />
