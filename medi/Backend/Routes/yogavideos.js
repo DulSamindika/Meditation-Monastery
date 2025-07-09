@@ -4,24 +4,27 @@ const upload = require("../Middleware/upload"); // The upload.js you provided ea
 const Video = require("../Database/models/yogavideo"); // Assuming this is the correct path to your video model
 
 // Create Video
-router.post("/yoga/upload", upload.single("video"), async (req, res) => {
+router.post("/upload", upload.single("video"), async (req, res) => {
   try {
-    const { title, duration, description, date, speaker } = req.body;
+    const { title, description, date, type } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ message: "No video file uploaded." });
     }
 
-    if (!title || !duration || !description || !date || !speaker) {
+    if (!title || !description || !date || !type) {
       return res.status(400).json({ message: "All fields are required." });
     }
+
+    // Calculate duration from the video file
+    const duration = req.file.size / 1024 / 1024; // Size in MB as a rough estimate
 
     const newVideo = new Video({
       title,
       duration,
       description,
       date,
-      speaker,
+      type,
       filePath: `/uploads/videos/${req.file.filename}`,
     });
 
@@ -33,7 +36,7 @@ router.post("/yoga/upload", upload.single("video"), async (req, res) => {
   }
 });
 // Read All Videos
-router.get("/yoga/", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const videos = await Video.find();
     res.status(200).json(videos);
